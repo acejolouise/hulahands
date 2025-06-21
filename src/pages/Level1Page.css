@@ -1,0 +1,260 @@
+.transparent-toolbar {
+  --background: transparent;
+  --border-color: transparent;
+}
+
+ion-header.ion-no-border {
+  --border-width: 0;
+}
+
+ion-toolbar ion-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0;
+  --color: white;
+}
+
+ion-back-button::part(native) {
+  color: white;
+}
+
+ion-content {
+  --background: #020029;
+}
+
+.level1-content {
+  --background: #020029;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+}
+
+.level1-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.level1-container h2 {
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.alphabet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.alphabet-button {
+  background-color: white;
+  color: #020029;
+  border: none;
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: bold;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alphabet-button:active {
+  transform: scale(0.95);
+  background-color: #f0f0f0;
+}
+
+.alphabet-button:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.game-area {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.complete-button {
+  margin-top: 30px;
+  --background: white;
+  --color: #020029;
+  --border-radius: 8px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  height: 48px;
+}
+
+ion-back-button {
+  --color: white;
+}
+
+.alphabet-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.letter-button {
+  background-color: #e0e0e0;
+  color: #000000;
+  border: none;
+  border-radius: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  height: 60px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-bottom: 10px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+}
+
+.letter-button:active {
+  transform: scale(0.95);
+  background-color: #f0f0f0;
+}
+
+.letter-button:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+
+@media (max-width: 360px) {
+  .level1-container {
+    padding: 5px;
+  }
+
+  .level1-container h2 {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .alphabet-grid {
+    gap: 10px;
+  }
+  
+  .alphabet-button {
+    font-size: 20px;
+    height: 70px;
+  }
+
+  .letter-button {
+    font-size: 18px;
+    height: 50px;
+    width: 95%;
+    margin-bottom: 8px;
+  }
+  
+  .ion-padding {
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+  }
+}
+
+
+@media (min-width: 361px) and (max-width: 480px) {
+  .letter-button {
+    height: 55px;
+    font-size: 20px;
+    width: 92%;
+  }
+  
+  .level1-container h2 {
+    margin-top: 8px;
+    margin-bottom: 15px;
+  }
+}
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .letter-button {
+    height: 60px;
+    font-size: 22px;
+    max-width: 450px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .alphabet-button {
+    font-size: 32px;
+    height: 100px;
+  }
+
+  .letter-button {
+    font-size: 26px;
+    height: 65px;
+    max-width: 500px;
+    margin-bottom: 15px;
+  }
+  
+  .alphabet-list {
+    gap: 20px;
+  }
+  
+  .level1-container h2 {
+    margin-bottom: 30px;
+  }
+}
+
+@media (pointer: coarse) {
+  .letter-button {
+    padding: 12px;
+    min-height: 60px; 
+    touch-action: manipulation; 
+  }
+  
+  .letter-button:active {
+    background-color: #d0d0d0;
+  }
+  
+
+  .alphabet-list {
+    gap: 16px;
+  }
+}
+

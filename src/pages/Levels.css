@@ -125,4 +125,13 @@ ion-toolbar ion-title {
   font-size: 1.2rem;
   font-weight: 500;
   padding: 0;
+--color: white;
+}
+
+ion-back-button {
+  --color: white;
+}
+
+ion-back-button::part(native) {
+  color: white;
 }
