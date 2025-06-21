@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   IonContent, 
   IonHeader, 
@@ -9,13 +9,33 @@ import {
   IonBackButton
 } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
+import AlphabetViewer from '../components/AlphabetViewer';
 import './Level1Page.css';
 
 const Level1Page: React.FC = () => {
   const history = useHistory();
+  const [showAlphabetViewer, setShowAlphabetViewer] = useState(false);
+  const [currentLetter, setCurrentLetter] = useState('A');
+
+  const handleLetterClick = (letter: string) => {
+    setCurrentLetter(letter);
+    setShowAlphabetViewer(true);
+  };
+
+  const handleAlphabetClick = () => {
+    setCurrentLetter('A');
+    setShowAlphabetViewer(true);
+  };
 
   return (
     <IonPage>
+      {showAlphabetViewer && (
+        <AlphabetViewer
+          initialLetter={currentLetter}
+          onClose={() => setShowAlphabetViewer(false)}
+          showAllAlphabets={currentLetter === 'A'}
+        />
+      )}
       <IonHeader className="ion-no-border">
         <IonToolbar className="transparent-toolbar">
           <IonButtons slot="start">
@@ -30,43 +50,43 @@ const Level1Page: React.FC = () => {
             <div className="alphabet-list">
             <button 
               className="letter-button"
-              onClick={() => console.log('Alphabet button clicked')}
+              onClick={handleAlphabetClick}
             >
               Alphabet
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter A clicked')}
+              onClick={() => handleLetterClick('A')}
             >
               A
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter B clicked')}
+              onClick={() => handleLetterClick('B')}
             >
               B
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter C clicked')}
+              onClick={() => handleLetterClick('C')}
             >
               C
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter D clicked')}
+              onClick={() => handleLetterClick('D')}
             >
               D
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter E clicked')}
+              onClick={() => handleLetterClick('E')}
             >
               E
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter F clicked')}
+              onClick={() => handleLetterClick('F')}
             >
               F
             </button>
