@@ -1,0 +1,128 @@
+.levels-grid {
+  padding: 16px;
+}
+
+.level-card {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+  height: 60px;
+  overflow: hidden;
+  --background: white;
+  --color: black;
+}
+
+.level-card:active {
+  transform: scale(0.95);
+}
+
+.level-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.level-card:active {
+  transform: scale(0.95);
+}
+
+.level-title {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.level-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 16px;
+}
+
+.level-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #020029;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.level-text {
+  color: black;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Responsive*/
+@media (max-width: 360px) {
+  .level-title {
+    font-size: 0.9rem;
+  }
+  
+  .level-content {
+    min-height: 60px;
+    padding: 10px;
+  }
+  
+  .level-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .level-card {
+    height: 80px;
+  }
+  
+  .level-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .level-number {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+  
+  .level-grid {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* Transparent toolbar styling */
+.transparent-toolbar {
+  --background: transparent;
+  --border-color: transparent;
+}
+
+ion-header.ion-no-border {
+  --border-width: 0;
+}
+
+/* Center title in toolbar */
+ion-toolbar ion-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0;
+}

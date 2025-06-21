@@ -1,0 +1,17 @@
+.level-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.transparent-toolbar {
+  --background: transparent;
+  --border-color: transparent;
+}
+
+ion-header.ion-no-border {
+  --border-width: 0;
+}

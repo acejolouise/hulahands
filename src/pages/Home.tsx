@@ -1,22 +1,34 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { useHistory } from 'react-router-dom';
 import './Home.css';
 
 const Home: React.FC = () => {
+  const history = useHistory();
+
+  const goToLevels = () => {
+    console.log('Navigating to levels page');
+    history.push('/levels');
+  };
+
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>Blank</IonTitle>
-        </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
+      <IonContent fullscreen className="ion-padding">
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer />
+        
+        <div className="container">
+          <div className="logo-container">
+            <img src="/assets/logo.png" alt="Logo" className="logo" />
+          </div>
+          <IonButton expand="block" className="start-button" onClick={goToLevels} routerLink="/levels" routerDirection="forward">
+            Start
+          </IonButton>
+        </div>
       </IonContent>
     </IonPage>
   );
