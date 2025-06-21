@@ -13,20 +13,19 @@ const AlphabetViewer: React.FC<AlphabetViewerProps> = ({
   onClose,
   showAllAlphabets = false
 }) => {
-  const alphabets = ['A', 'B', 'C', 'D', 'E', 'F'];
+  const alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
   const [currentLetter, setCurrentLetter] = useState(initialLetter);
   const currentIndex = alphabets.indexOf(currentLetter);
 
-  const handleNext = () => {
+  const handleNext = showAllAlphabets ? () => {
     const nextIndex = (currentIndex + 1) % alphabets.length;
     setCurrentLetter(alphabets[nextIndex]);
-  };
+  } : undefined;
 
-  const handlePrevious = () => {
+  const handlePrevious = showAllAlphabets ? () => {
     const prevIndex = (currentIndex - 1 + alphabets.length) % alphabets.length;
     setCurrentLetter(alphabets[prevIndex]);
-  };
-
+  } : undefined;
   return (
     <div className="alphabet-viewer">
       <button className="close-button" onClick={onClose}>
@@ -34,10 +33,9 @@ const AlphabetViewer: React.FC<AlphabetViewerProps> = ({
       </button>
       <AlphabetDetail
         letter={currentLetter}
-        onClose={onClose}
         onNext={handleNext}
         onPrevious={handlePrevious}
-        showNavigation={true}
+        showNavigation={showAllAlphabets}
       />
     </div>
   );

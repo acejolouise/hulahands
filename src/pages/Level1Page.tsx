@@ -8,32 +8,32 @@ import {
   IonButtons,
   IonBackButton
 } from '@ionic/react';
-import { useHistory } from 'react-router-dom';
 import AlphabetViewer from '../components/AlphabetViewer';
 import './Level1Page.css';
 
 const Level1Page: React.FC = () => {
-  const history = useHistory();
   const [showAlphabetViewer, setShowAlphabetViewer] = useState(false);
   const [currentLetter, setCurrentLetter] = useState('A');
+  const [showAllAlphabets, setShowAllAlphabets] = useState(false);
 
   const handleLetterClick = (letter: string) => {
     setCurrentLetter(letter);
     setShowAlphabetViewer(true);
+    setShowAllAlphabets(false); 
   };
 
   const handleAlphabetClick = () => {
     setCurrentLetter('A');
     setShowAlphabetViewer(true);
+    setShowAllAlphabets(true); 
   };
 
   return (
-    <IonPage>
-      {showAlphabetViewer && (
+    <IonPage>      {showAlphabetViewer && (
         <AlphabetViewer
           initialLetter={currentLetter}
           onClose={() => setShowAlphabetViewer(false)}
-          showAllAlphabets={currentLetter === 'A'}
+          showAllAlphabets={showAllAlphabets}
         />
       )}
       <IonHeader className="ion-no-border">
@@ -83,12 +83,29 @@ const Level1Page: React.FC = () => {
               onClick={() => handleLetterClick('E')}
             >
               E
-            </button>
-            <button 
+            </button>            <button 
               className="letter-button"
               onClick={() => handleLetterClick('F')}
             >
               F
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => handleLetterClick('G')}
+            >
+              G
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => handleLetterClick('H')}
+            >
+              H
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => handleLetterClick('I')}
+            >
+              I
             </button>
             <button 
               className="letter-button"

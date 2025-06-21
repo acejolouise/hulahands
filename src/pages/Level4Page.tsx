@@ -8,12 +8,9 @@ import {
   IonButtons,
   IonBackButton
 } from '@ionic/react';
-import { useHistory } from 'react-router-dom';
 import './Level4Page.css';
 
 const Level4Page: React.FC = () => {
-  // Will be used for navigation in future features
-  const history = useHistory();
 
   return (
     <IonPage>

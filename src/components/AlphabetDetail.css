@@ -80,9 +80,39 @@
   opacity: 1;
 }
 
-/* Make the play icon disappear when video is playing */
 .video-wrapper.playing .play-button-overlay {
   display: none;
+}
+
+.alphabet-video::-webkit-media-controls-panel {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.alphabet-video::-webkit-media-controls-play-button,
+.alphabet-video::-webkit-media-controls-time-remaining-display,
+.alphabet-video::-webkit-media-controls-current-time-display {
+  color: white;
+}
+
+video:focus {
+  outline: none;
+}
+
+.video-error-message {
+  color: white;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.debug-info {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 10px;
 }
 
 .letter-display {
@@ -128,7 +158,7 @@
   border-radius: 50%;
 }
 
-/* Responsive Styles */
+/* Responsive */
 @media (max-width: 480px) {
   .video-container h2 {
     font-size: 1.2rem;
