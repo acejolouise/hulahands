@@ -63,7 +63,6 @@
   margin: 0;
 }
 
-/* Responsive*/
 @media (max-width: 360px) {
   .level-title {
     font-size: 0.9rem;
@@ -104,7 +103,6 @@
   }
 }
 
-/* Transparent toolbar styling */
 .transparent-toolbar {
   --background: transparent;
   --border-color: transparent;
@@ -114,7 +112,6 @@ ion-header.ion-no-border {
   --border-width: 0;
 }
 
-/* Center title in toolbar */
 ion-toolbar ion-title {
   position: absolute;
   left: 0;
