@@ -366,26 +366,30 @@ option-item:hover .option-text {
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-}
-
-.back-button-container {
-  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-top: clamp(20px, 5vh, 40px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.back-button {
-  --background: var(--ion-color-primary);
-  --background-hover: var(--ion-color-primary-shade);
-  --border-radius: clamp(6px, 1.5vw, 10px);
-  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  font-weight: bold;
-  height: clamp(40px, 8vh, 56px);
-  margin: 0 auto;
-  width: clamp(180px, 90%, 300px);
-  font-size: clamp(14px, 3.5vw, 18px);
-  max-width: 400px;
+.score-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-content h2 {
+  margin-bottom: 10px;
+  font-size: clamp(18px, 5vw, 24px);
+}
+
+.score-content p {
+  margin-bottom: 20px;
+  font-size: clamp(16px, 4vw, 20px);
 }
 
 /* Responsive styles */

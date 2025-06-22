@@ -492,7 +492,7 @@ return (
     })}
    </div>
               
-           {isAnswered && ( 
+          {isAnswered && ( 
                 <>
                   {selectedAnswer === "TIME_EXPIRED" && (
                     <div className="time-expired-message">
@@ -515,17 +515,20 @@ return (
             <IonCardTitle>Quiz Completed!</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <h2>Your score: {score} out of {quizQuestions.length}</h2>
-            <p>{score >= 7 ? 'Great job!' : 'Keep practicing!'}</p>
-            <div className="back-button-container">
-              <IonButton 
-                expand="block" 
-                onClick={onClose}
-                className="back-button"
-                size="large"
-              >
-                Back to Alphabets
-              </IonButton>
+            <div className="score-content">
+              <h2>Your score: {score} out of {quizQuestions.length}</h2>
+              <p>{score >= 7 ? 'Great job!' : 'Keep practicing!'}</p>
+              <div className="back-button-container">
+                <IonButton 
+                  expand="block" 
+                  onClick={onClose}
+                  className="back-button"
+                  size="large"
+                  routerLink="/level2page"
+                >
+                  Continue Next Level
+                </IonButton>
+              </div>
             </div>
           </IonCardContent>
         </IonCard>
