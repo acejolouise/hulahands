@@ -9,32 +9,40 @@ import {
   IonBackButton
 } from '@ionic/react';
 import AlphabetViewer from '../components/AlphabetViewer';
+import QuizComponent from '../components/QuizComponent';
 import './Level1Page.css';
 
 const Level1Page: React.FC = () => {
   const [showAlphabetViewer, setShowAlphabetViewer] = useState(false);
   const [currentLetter, setCurrentLetter] = useState('A');
-  const [showAllAlphabets, setShowAllAlphabets] = useState(false);
+  const [showQuiz, setShowQuiz] = useState(false);
 
   const handleLetterClick = (letter: string) => {
     setCurrentLetter(letter);
     setShowAlphabetViewer(true);
-    setShowAllAlphabets(false); 
   };
-
   const handleAlphabetClick = () => {
     setCurrentLetter('A');
     setShowAlphabetViewer(true);
-    setShowAllAlphabets(true); 
   };
-
+  
+  const handleQuizClick = () => {
+    setShowQuiz(true);
+  };
+  
+  const handleQuizClose = () => {
+    setShowQuiz(false);
+  };
   return (
-    <IonPage>      {showAlphabetViewer && (
+    <IonPage>
+      {showAlphabetViewer && (
         <AlphabetViewer
           initialLetter={currentLetter}
           onClose={() => setShowAlphabetViewer(false)}
-          showAllAlphabets={showAllAlphabets}
         />
+      )}
+      {showQuiz && (
+        <QuizComponent onClose={handleQuizClose} />
       )}
       <IonHeader className="ion-no-border">
         <IonToolbar className="transparent-toolbar">
@@ -106,10 +114,10 @@ const Level1Page: React.FC = () => {
               onClick={() => handleLetterClick('I')}
             >
               I
-            </button>
+            </button>            
             <button 
               className="letter-button"
-              onClick={() => console.log('Quiz button clicked')}
+              onClick={handleQuizClick}
             >
               Let's see what you remember!
             </button>

@@ -16,12 +16,11 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
   onPrevious, 
   showNavigation = true 
 }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoError, setVideoError] = useState(false);
-  const [imageError, setImageError] = useState(false);
-  const videoSrc = `/src/assets/level1vids/${letter}.mp4`;
-  const imageSrc = `/src/assets/level1pics/${letter}.png`;
+  
+  const videoSrc = `/assets/level1vids/${letter}.mp4`;
+  const videoRef = useRef<HTMLVideoElement>(null);
   
   const handlePlayVideo = () => {
     if (videoRef.current) {
@@ -40,49 +39,41 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
   useEffect(() => {
     setIsPlaying(false);
     setVideoError(false);
-    setImageError(false);
+    
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+    
+    const handleEnded = () => setIsPlaying(false);
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+    
+    videoElement.addEventListener('ended', handleEnded);
+    videoElement.addEventListener('play', handlePlay);
+    videoElement.addEventListener('pause', handlePause);
+    
+    videoElement.pause();
+    videoElement.currentTime = 0;
     
     const timer = setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.play()
-          .then(() => {
-            setIsPlaying(true);
-          })
+      if (videoElement) {
+        videoElement.playbackRate = 1.0; 
+        videoElement.play()
+          .then(() => setIsPlaying(true))
           .catch(err => {
-            console.error('Error auto-playing video:', err);
+            console.error('Error playing video:', err);
             setVideoError(true);
           });
       }
-    }, 500);
+    }, 300);
     
-    const videoElement = videoRef.current;
-    if (videoElement) {
-      const handleEnded = () => setIsPlaying(false);
-      const handlePlay = () => setIsPlaying(true);
-      const handlePause = () => setIsPlaying(false);
-      
-      videoElement.addEventListener('ended', handleEnded);
-      videoElement.addEventListener('play', handlePlay);
-      videoElement.addEventListener('pause', handlePause);
-      
-      return () => {
-        clearTimeout(timer);
-        if (videoElement) {
-          videoElement.removeEventListener('ended', handleEnded);
-          videoElement.removeEventListener('play', handlePlay);
-          videoElement.removeEventListener('pause', handlePause);
-        }
-      };
-    }
-    
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      videoElement.removeEventListener('ended', handleEnded);
+      videoElement.removeEventListener('play', handlePlay);
+      videoElement.removeEventListener('pause', handlePause);
+    };
   }, [letter]);
   
-  useEffect(() => {
-    console.log('Video path:', videoSrc);
-    console.log('Image path:', imageSrc);
-  }, [videoSrc, imageSrc]);
-
   const renderVideoError = () => {
     if (videoError) {
       return (
@@ -104,16 +95,17 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
         >          <video 
             ref={videoRef}
             className="alphabet-video"
-            poster={!imageError ? imageSrc : `/assets/placeholder.png`}
-            onError={() => setImageError(true)}
             playsInline
-          >
-            <source 
-              src={videoSrc} 
+            key={letter} 
+          >            
+          <source 
+              src={`/assets/level1vids/${letter}.mp4`} 
               type="video/mp4" 
               onError={() => setVideoError(true)}
+              key={`source-${letter}`}
             />
-            Your browser does not support the video tag.          </video>
+            Your browser does not support the video tag.          
+            </video>
           {!isPlaying && (
             <div className="play-button-overlay">
               <IonIcon icon={playCircle} className="play-icon" />
@@ -152,3 +144,4 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
 };
 
 export default AlphabetDetail;
+             
