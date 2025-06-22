@@ -33,12 +33,19 @@ const Level1Page: React.FC = () => {
   const handleQuizClose = () => {
     setShowQuiz(false);
   };
+
+  const handleStartQuiz = () => {
+    setShowAlphabetViewer(false);  // Hide the alphabet viewer
+    setShowQuiz(true);             // Show the quiz component
+  };
+  
   return (
     <IonPage>
       {showAlphabetViewer && (
         <AlphabetViewer
           initialLetter={currentLetter}
           onClose={() => setShowAlphabetViewer(false)}
+          onTakeQuiz={handleStartQuiz}  // Add this prop to navigate to quiz
         />
       )}
       {showQuiz && (

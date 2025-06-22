@@ -58,9 +58,20 @@ const AlphabetViewer: React.FC<AlphabetViewerProps> = ({
   const handleTakeQuiz = () => {
     setShowQuizModal(false);
     if (onTakeQuiz) {
+      // Ensure we're navigating to the Quiz component
+      console.log("Navigating to Quiz component");
       onTakeQuiz();
     } else {
-      onClose();
+      console.log("No onTakeQuiz handler provided - cannot navigate to quiz");
+      // Don't call onClose() which might be returning to Level 1
+    }
+  };
+
+  const handleQuizButtonClick = () => {
+    if (onTakeQuiz) {
+      onTakeQuiz();
+    } else {
+      toggleQuizModal();
     }
   };
   
@@ -111,7 +122,7 @@ const AlphabetViewer: React.FC<AlphabetViewerProps> = ({
         <div className="quiz-button-container">
           <button 
             className="standard-button quiz-btn"
-            onClick={toggleQuizModal}
+            onClick={handleQuizButtonClick}
           >
             Take the Quiz
           </button>
