@@ -6,8 +6,6 @@ import {
   IonCardHeader, 
   IonCardTitle,
   IonItem,
-  IonLabel,
-  IonProgressBar,
   IonIcon
 } from '@ionic/react';
 import { checkmarkCircle, closeCircle } from 'ionicons/icons';
@@ -24,20 +22,34 @@ interface QuizQuestion {
   mediaType: 'video' | 'image' | 'none';
   mediaPath?: string;
   correctAnswer: string;
+  optionsAreMedia?: boolean;
+  showQuestionMedia?: boolean;
+  optionMediaType?: 'video' | 'image' | 'mixed';
+  optionMediaPaths?: { [key: string]: { type: 'video' | 'image', path: string } };
 }
-// Define questions outside the component to avoid dependency issues
-const quizQuestions: QuizQuestion[] = [  {
+
+const quizQuestions: QuizQuestion[] = [
+  {
     id: 1,
     question: "Which video shows the right sign for letter A?",
     options: [
-      "a. Video of B",
-      "b. Video of A",
-      "c. Video of E",
-      "d. Video of C"
+      "a. B",
+      "b. A",
+      "c. E",
+      "d. C"
     ],
-    mediaType: 'video',
-    mediaPath: '/assets/level1vids/A.mp4',
-    correctAnswer: "b. Video of A"
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "b. A",
+    optionsAreMedia: true,
+    showQuestionMedia: false,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      'B': { type: 'video', path: '/assets/level1vids/B.mp4' },
+      'A': { type: 'video', path: '/assets/level1vids/A.mp4' },
+      'E': { type: 'video', path: '/assets/level1vids/E.mp4' },
+      'C': { type: 'video', path: '/assets/level1vids/C.mp4' }
+    }
   },
   {
     id: 2,
@@ -50,7 +62,8 @@ const quizQuestions: QuizQuestion[] = [  {
     ],
     mediaType: 'image',
     mediaPath: '/assets/level1pics/B.png',
-    correctAnswer: "c. B"
+    correctAnswer: "c. B",
+    optionsAreMedia: false
   },
   {
     id: 3,
@@ -63,44 +76,71 @@ const quizQuestions: QuizQuestion[] = [  {
     ],
     mediaType: 'video',
     mediaPath: '/assets/level1vids/C.mp4',
-    correctAnswer: "a. C"
-  },  {
+    correctAnswer: "a. C",
+    optionsAreMedia: false
+  },
+  {
     id: 4,
     question: "Which video shows the correct sign for the letter D?",
     options: [
-      "a. Video of I",
-      "b. Video of F",
-      "c. Video of H",
-      "d. Video of D"
+      "a. I",
+      "b. F",
+      "c. H",
+      "d. D"
     ],
-    mediaType: 'video',
-    mediaPath: '/assets/level1vids/D.mp4',
-    correctAnswer: "d. Video of D"
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "d. D",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      'I': { type: 'video', path: '/assets/level1vids/I.mp4' },
+      'F': { type: 'video', path: '/assets/level1vids/F.mp4' },
+      'H': { type: 'video', path: '/assets/level1vids/H.mp4' },
+      'D': { type: 'video', path: '/assets/level1vids/D.mp4' }
+    }
   },
   {
     id: 5,
     question: "Which picture matches the correct sign for letter E?",
     options: [
-      "a. Picture of E",
-      "b. Picture of A",
-      "c. Picture of J",
-      "d. Picture of B"
+      "a. E",
+      "b. A",
+      "c. J",
+      "d. B"
     ],
-    mediaType: 'image',
-    mediaPath: '/assets/level1pics/E.png',
-    correctAnswer: "a. Picture of E"
-  },  {
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "a. E",
+    optionsAreMedia: true,
+    optionMediaType: 'image',
+    optionMediaPaths: {
+      'E': { type: 'image', path: '/assets/level1pics/E.png' },
+      'A': { type: 'image', path: '/assets/level1pics/A.png' },
+      'J': { type: 'image', path: '/assets/level1pics/J.png' },
+      'B': { type: 'image', path: '/assets/level1pics/B.png' }
+    }
+  },
+  {
     id: 6,
     question: "Which video matches the correct sign for the letter F?",
     options: [
-      "a. Video of A",
-      "b. Video of D",
-      "c. Video of G",
-      "d. Video of F"
+      "a. A",
+      "b. D",
+      "c. G",
+      "d. F"
     ],
-    mediaType: 'video',
-    mediaPath: '/assets/level1vids/F.mp4',
-    correctAnswer: "d. Video of F"
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "d. F",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      'A': { type: 'video', path: '/assets/level1vids/A.mp4' },
+      'D': { type: 'video', path: '/assets/level1vids/D.mp4' },
+      'G': { type: 'video', path: '/assets/level1vids/G.mp4' },
+      'F': { type: 'video', path: '/assets/level1vids/F.mp4' }
+    }
   },
   {
     id: 7,
@@ -113,19 +153,29 @@ const quizQuestions: QuizQuestion[] = [  {
     ],
     mediaType: 'video',
     mediaPath: '/assets/level1vids/G.mp4',
-    correctAnswer: "b. G"
-  },  {
+    correctAnswer: "b. G",
+    optionsAreMedia: false
+  },
+  {
     id: 8,
     question: "Choose the video that shows the correct sign for the letter H:",
     options: [
-      "a. Video of H",
-      "b. Video of D",
-      "c. Video of A",
-      "d. Video of C"
+      "a. H",
+      "b. D",
+      "c. A",
+      "d. C"
     ],
-    mediaType: 'video',
-    mediaPath: '/assets/level1vids/H.mp4',
-    correctAnswer: "a. Video of H"
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "a. H",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      'H': { type: 'video', path: '/assets/level1vids/H.mp4' },
+      'D': { type: 'video', path: '/assets/level1vids/D.mp4' },
+      'A': { type: 'video', path: '/assets/level1vids/A.mp4' },
+      'C': { type: 'video', path: '/assets/level1vids/C.mp4' }
+    }
   },
   {
     id: 9,
@@ -138,7 +188,8 @@ const quizQuestions: QuizQuestion[] = [  {
     ],
     mediaType: 'image',
     mediaPath: '/assets/level1pics/I.png',
-    correctAnswer: "c. I"
+    correctAnswer: "c. I",
+    optionsAreMedia: false
   },
   {
     id: 10,
@@ -151,20 +202,24 @@ const quizQuestions: QuizQuestion[] = [  {
     ],
     mediaType: 'video',
     mediaPath: '/assets/level1vids/E.mp4',
-    correctAnswer: "c. E"
+    correctAnswer: "c. E",
+    optionsAreMedia: false
   }
-];const QuizComponent: React.FC<QuizComponentProps> = ({ onClose }) => {
+];
+
+const QuizComponent: React.FC<QuizComponentProps> = ({ onClose }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [secondsLeft, setSecondsLeft] = useState(10);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
-  
+  const [timeLeft, setTimeLeft] = useState(10); 
+  const videoRefs = React.useRef<{[key: string]: HTMLVideoElement | null}>({});
+
   const moveToNextQuestion = useCallback(() => {
     setIsAnswered(false);
     setSelectedAnswer(null);
-    setSecondsLeft(10);
+    setTimeLeft(10); 
 
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < quizQuestions.length) {
@@ -174,126 +229,283 @@ const quizQuestions: QuizQuestion[] = [  {
     }
   }, [currentQuestion]);
 
-  const handleAnswerClick = (selectedOption: string) => {
+  const handleAnswerClick = useCallback((selectedOption: string) => {
     if (isAnswered) return; 
 
     setIsAnswered(true);
     setSelectedAnswer(selectedOption);
 
     if (selectedOption === quizQuestions[currentQuestion].correctAnswer) {
-      setScore(score + 1);
+      setScore(prevScore => prevScore + 1);
     }
 
-    setTimeout(() => {
-      moveToNextQuestion();
-    }, 2000);
-  };
-  
-  useEffect(() => {
-    if (showScore) return;
+    const optionText = selectedOption.split('.')[1]?.trim() || '';
+    if (videoRefs.current[optionText]) {
+      const video = videoRefs.current[optionText];
+      video.muted = false;
+      video.load();
+      setTimeout(() => {
+        video.play().catch(err => console.error("Error playing video after answer:", err));
+      }, 100);
+    }
+      }, [isAnswered, currentQuestion]);
 
+  useEffect(() => {
+    if (showScore || isAnswered) return;
+    
     const timer = setInterval(() => {
-      setSecondsLeft((prev) => {
-        if (prev <= 1) {
-          
-          if (!isAnswered) {
-            moveToNextQuestion();
-          }
-          return 10; 
+      setTimeLeft(prevTime => {
+        if (prevTime <= 1) {
+          clearInterval(timer);
+          setIsAnswered(true);
+          setSelectedAnswer("TIME_EXPIRED");
+          return 0;
         }
-        return prev - 1;
+        return prevTime - 1;
       });
     }, 1000);
-
+    
     return () => clearInterval(timer);
-  }, [currentQuestion, isAnswered, showScore, moveToNextQuestion]);
+  }, [currentQuestion, isAnswered, showScore]);
 
-  return (
-    <div className="quiz-container">
+  const setVideoRef = useCallback((element: HTMLVideoElement | null, optionText: string) => {
+    if (element) {
+      videoRefs.current[optionText] = element;
+    }
+  }, []);
+
+  useEffect(() => {
+    const playAllVideos = () => {
+      const questionData = quizQuestions[currentQuestion];
+      if (questionData.optionsAreMedia && questionData.optionMediaType === 'video') {
+        const videoElements = document.querySelectorAll('video.option-media');
+        
+        videoElements.forEach(video => {
+          if (video instanceof HTMLVideoElement) {
+            video.muted = true;
+            video.setAttribute('playsinline', '');
+            video.setAttribute('webkit-playsinline', '');
+            video.loop = true;
+            
+            const attemptPlay = () => {
+              const playPromise = video.play();
+              if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                  setTimeout(() => {
+                    video.muted = true;
+                    video.play().catch(() => {});
+                  }, 100);
+                });
+              }
+            };
+            attemptPlay();
+          }
+        });
+      }
+    };
+    
+    Object.values(videoRefs.current).forEach(video => {
+      if (video) {
+        video.pause();
+        video.currentTime = 0;
+        video.muted = true;
+        video.loop = true;
+      }
+    });
+    
+    setTimeout(playAllVideos, 100);
+    setTimeout(playAllVideos, 500);
+    setTimeout(playAllVideos, 1000);
+    
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        playAllVideos();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('focus', playAllVideos);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', playAllVideos);
+    };
+  }, [currentQuestion]);
+
+return (
+   <div className="quiz-container">
       {!showScore ? (
-        <>          <div className="quiz-header">
+        <>          
+          <div className="quiz-header">
             <div className="timer-container">
-              <div className="question-number">
-                {currentQuestion + 1}
+              <div className="question-indicator">
+                <div className="question-number">
+                  {currentQuestion + 1}
+                </div>
               </div>
-            </div>
-            <div className="timer">
-              <IonProgressBar 
-                value={secondsLeft / 10} 
-                className={secondsLeft <= 3 ? 'danger' : ''}
-              ></IonProgressBar>
-              <span>{secondsLeft}s</span>
+              <div className="countdown-timer">
+                <div className={`timer-box ${timeLeft <= 3 ? 'critical' : timeLeft <= 5 ? 'warning' : ''}`}>
+                  <span>{timeLeft}</span>
+                </div>
+              </div>
+              <div className="right-spacer"></div>
             </div>
           </div>
-
-          <IonCard className="question-card">
-            <IonCardHeader>
-              <IonCardTitle>{quizQuestions[currentQuestion].question}</IonCardTitle>
-            </IonCardHeader>
-            <IonCardContent>              <div className="main-media-container">
-                {quizQuestions[currentQuestion].mediaType === 'video' && (
-                  <video 
-                    src={quizQuestions[currentQuestion].mediaPath}
-                    controls
-                    autoPlay
-                    loop
-                    className="quiz-media"
-                  ></video>
-                )}
-                {quizQuestions[currentQuestion].mediaType === 'image' && (
-                  <img 
-                    src={quizQuestions[currentQuestion].mediaPath}
-                    alt="Quiz visual"
-                    className="quiz-media"
-                  />
-                )}
-                {/* Add a character icon for visual appeal */}
-                <div className="character-icon"></div>
-              </div><div className="options-list">
+ <IonCard className="question-card">
+     <IonCardHeader>
+      <IonCardTitle>{quizQuestions[currentQuestion].question}</IonCardTitle>
+         </IonCardHeader>
+            <IonCardContent>
+              {quizQuestions[currentQuestion].showQuestionMedia !== false && quizQuestions[currentQuestion].mediaType !== 'none' && (
+                <div className="main-media-container">
+                  {quizQuestions[currentQuestion].mediaType === 'video' && 
+                   quizQuestions[currentQuestion].mediaPath && (
+                     <video 
+                      src={quizQuestions[currentQuestion].mediaPath}
+                      controls
+                      autoPlay
+                      loop
+                      className="quiz-media"
+                      onError={(e) => console.error("Video error:", e)}
+                    ></video>
+                  )}
+                  {quizQuestions[currentQuestion].mediaType === 'image' && 
+                   quizQuestions[currentQuestion].mediaPath && (
+                    <img 
+                      src={quizQuestions[currentQuestion].mediaPath}
+                      alt="Quiz visual"
+                      className="quiz-media"
+                      onError={(e) => console.error("Image error:", e)}
+                    />
+                  )}
+                </div>
+              )}
+              <div className="options-list">
                 {quizQuestions[currentQuestion].options.map((option, index) => {
-                  // Extract just the letter part for display
-                  const optionLetter = option.split('.')[0];
+                  const optionLetter = option.split('.')[0].trim();
+                  const optionText = option.split('.')[1]?.trim() || '';
+                  const questionData = quizQuestions[currentQuestion];
+                  const optionMediaInfo = questionData.optionMediaPaths?.[optionText];
+                  
                   return (
-                    <IonItem 
-                      key={index}
-                      lines="none"
-                      button
-                      color={
-                        isAnswered ? 
-                          (option === quizQuestions[currentQuestion].correctAnswer ? 'success' : 
-                           option === selectedAnswer && option !== quizQuestions[currentQuestion].correctAnswer ? 'danger' : '') 
-                        : ''
-                      }
-                      onClick={() => handleAnswerClick(option)}
-                      disabled={isAnswered}
-                      className={
-                        isAnswered && option === quizQuestions[currentQuestion].correctAnswer ? 'correct-answer' : 
-                        isAnswered && option === selectedAnswer ? 'incorrect-answer' : ''
-                      }
-                    >
-                      <IonLabel>                        {/* Show video thumbnails for visual effect */}
-                        {quizQuestions[currentQuestion].mediaType === 'video' && (
-                          <div className="option-media-container">
-                            <video 
-                              src={`/assets/level1vids/${optionLetter.trim()}.mp4`}
-                              className="option-media"
-                              muted
-                              playsInline
-                              controls={false}
-                            ></video>
-                          </div>
-                        )}
-                      </IonLabel>
-                      {isAnswered && option === quizQuestions[currentQuestion].correctAnswer && (
-                        <IonIcon icon={checkmarkCircle} color="success" slot="end" />
-                      )}
-                      {isAnswered && option === selectedAnswer && option !== quizQuestions[currentQuestion].correctAnswer && (
-                        <IonIcon icon={closeCircle} color="danger" slot="end" />
-                      )}
-                    </IonItem>
-                  );
-                })}
-              </div>
+  <IonItem 
+          key={index}
+          lines="none"
+           button
+          detail={false}
+          color={
+          isAnswered ? 
+          (option === questionData.correctAnswer ? 'success' : 
+          (option === selectedAnswer && option !== questionData.correctAnswer) ? 'danger' : '') 
+            : ''
+                }
+            onClick={() => handleAnswerClick(option)}
+            disabled={isAnswered}
+           className={`option-item ${
+           isAnswered && option === questionData.correctAnswer ? 'correct-answer' : 
+           isAnswered && option === selectedAnswer ? 'incorrect-answer' : ''
+             }`}
+          >
+    <div className="option-content">
+         <span className="option-label">{optionLetter}</span>
+     {questionData.optionsAreMedia ? (
+    <div className="option-media-container">
+    {optionMediaInfo ? (
+     optionMediaInfo.type === 'video' ? (
+     <video 
+     ref={(el) => setVideoRef(el, optionText)}
+     src={optionMediaInfo.path}
+     className="option-media" 
+     loop
+     muted={true}
+     playsInline
+     webkit-playsinline="true"
+     preload="auto"
+     controls={false}
+     autoPlay={true}
+     onLoadedData={(e) => {
+    const video = e.target as HTMLVideoElement;
+    video.muted = true;
+    video.play().catch(() => {});
+   }}
+ onClick={(e) => {
+     e.stopPropagation();
+        if (!isAnswered) {
+       handleAnswerClick(option);
+      }
+     }}
+     ></video>
+    ) : (
+  <img 
+    src={optionMediaInfo.path}
+     alt={`Option ${optionLetter}`}
+     className="option-media"
+     onError={(e) => console.error("Option image error:", e)}
+       />
+       )
+      ) : (
+      questionData.optionMediaType === 'video' || 
+     (questionData.optionMediaType !== 'image' && questionData.mediaType === 'video') ? (
+      <video 
+      ref={(el) => setVideoRef(el, optionText)}
+      src={`/assets/level1vids/${optionText}.mp4`}
+      className="option-media"
+      loop
+      muted={true}
+      playsInline
+       webkit-playsinline="true"
+      preload="auto"
+      controls={false}
+      autoPlay={true}
+       onLoadedData={(e) => {
+    const video = e.target as HTMLVideoElement;
+            video.muted = true;
+            video.play().catch(() => {});
+            }}
+           onClick={(e) => {
+              e.stopPropagation();
+             if (!isAnswered) {
+             handleAnswerClick(option);
+         }
+          }}
+          ></video>
+           ) : (
+          <img 
+              src={`/assets/level1pics/${optionText}.png`}
+              alt={`Option ${optionLetter}`}
+               className="option-media"
+             onError={(e) => console.error("Option image error:", e)}
+           />
+               )
+              )}
+             </div>
+           ) : (
+           <span className="option-text">{optionText}</span>
+         )}
+        </div>
+                      
+         {isAnswered && option === questionData.correctAnswer && (
+      <IonIcon icon={checkmarkCircle} color="success" slot="end" />
+          )}
+           {isAnswered && option === selectedAnswer && option !== questionData.correctAnswer && (
+        <IonIcon icon={closeCircle} color="danger" slot="end" />)}
+    </IonItem>
+      );
+    })}
+   </div>
+              
+           {isAnswered && ( 
+                <>
+                  {selectedAnswer === "TIME_EXPIRED" && (
+                    <div className="time-expired-message">
+                      Time expired! Please proceed to the next question.
+                    </div>
+                  )}
+                  <div className="next-question-container">
+                    <IonButton expand="block" onClick={moveToNextQuestion} className="next-question-button">
+                      Next Question
+                    </IonButton>
+                  </div>
+                </>
+              )}
             </IonCardContent>
           </IonCard>
         </>
@@ -305,9 +517,16 @@ const quizQuestions: QuizQuestion[] = [  {
           <IonCardContent>
             <h2>Your score: {score} out of {quizQuestions.length}</h2>
             <p>{score >= 7 ? 'Great job!' : 'Keep practicing!'}</p>
-            <IonButton expand="block" onClick={onClose}>
-              Back to Alphabets
-            </IonButton>
+            <div className="back-button-container">
+              <IonButton 
+                expand="block" 
+                onClick={onClose}
+                className="back-button"
+                size="large"
+              >
+                Back to Alphabets
+              </IonButton>
+            </div>
           </IonCardContent>
         </IonCard>
       )}

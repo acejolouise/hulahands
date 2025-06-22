@@ -1,4 +1,4 @@
-import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonPage, } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import './Home.css';
 
@@ -16,9 +16,7 @@ const Home: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen className="ion-padding">
         <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
+          
         </IonHeader>
         
         <div className="container">

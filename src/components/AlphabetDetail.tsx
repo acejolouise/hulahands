@@ -18,6 +18,7 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoError, setVideoError] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   
   const videoSrc = `/assets/level1vids/${letter}.mp4`;
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -27,10 +28,25 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
       if (isPlaying) {
         videoRef.current.pause();
       } else {
+        videoRef.current.muted = true;
         videoRef.current.play()
+          .then(() => {
+            videoRef.current!.muted = false;
+            setIsPlaying(true);
+          })
           .catch(err => {
             console.error('Error playing video:', err);
-            setVideoError(true);
+            if (!videoRef.current!.muted) {
+              videoRef.current!.muted = true;
+              videoRef.current!.play()
+                .then(() => setIsPlaying(true))
+                .catch(e => {
+                  console.error('Error playing even muted video:', e);
+                  setVideoError(true);
+                });
+            } else {
+              setVideoError(true);
+            }
           });
       }
     }
@@ -39,6 +55,7 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
   useEffect(() => {
     setIsPlaying(false);
     setVideoError(false);
+    setVideoLoaded(false);
     
     const videoElement = videoRef.current;
     if (!videoElement) return;
@@ -46,39 +63,69 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
     const handleEnded = () => setIsPlaying(false);
     const handlePlay = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
+    const handleCanPlay = () => setVideoLoaded(true);
+    const handleError = () => {
+      console.error('Video error event triggered');
+      setVideoError(true);
+    };
     
     videoElement.addEventListener('ended', handleEnded);
     videoElement.addEventListener('play', handlePlay);
     videoElement.addEventListener('pause', handlePause);
+    videoElement.addEventListener('canplay', handleCanPlay);
+    videoElement.addEventListener('error', handleError);
     
     videoElement.pause();
     videoElement.currentTime = 0;
-    
-    const timer = setTimeout(() => {
-      if (videoElement) {
-        videoElement.playbackRate = 1.0; 
-        videoElement.play()
-          .then(() => setIsPlaying(true))
-          .catch(err => {
-            console.error('Error playing video:', err);
-            setVideoError(true);
-          });
-      }
-    }, 300);
+    videoElement.preload = 'auto';
     
     return () => {
-      clearTimeout(timer);
       videoElement.removeEventListener('ended', handleEnded);
       videoElement.removeEventListener('play', handlePlay);
       videoElement.removeEventListener('pause', handlePause);
+      videoElement.removeEventListener('canplay', handleCanPlay);
+      videoElement.removeEventListener('error', handleError);
     };
   }, [letter]);
+
+  useEffect(() => {
+    if (!videoLoaded || !videoRef.current) return;
+    
+    const playVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.muted = true;
+        videoRef.current.playbackRate = 1.0;
+        videoRef.current.play()
+          .then(() => {
+            videoRef.current!.muted = false;
+            setIsPlaying(true);
+          })
+          .catch(err => {
+            console.error('Error in initial play:', err);
+            if (videoRef.current!.muted) {
+              videoRef.current!.play()
+                .then(() => setIsPlaying(true))
+                .catch(e => {
+                  console.error('Failed even muted playback:', e);
+                  setVideoError(true);
+                });
+            } else {
+              setVideoError(true);
+            }
+          });
+      }
+    };
+    
+    const timer = setTimeout(playVideo, 300);
+    
+    return () => clearTimeout(timer);
+  }, [videoLoaded]);
   
   const renderVideoError = () => {
     if (videoError) {
       return (
         <div className="video-error-message">
-          Unable to load video. Please check that the file exists at {videoSrc}
+          Unable to play video. Please tap to try again.
         </div>
       );
     }
@@ -92,21 +139,24 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
         <div 
           className={`video-wrapper ${isPlaying ? 'playing' : ''}`} 
           onClick={handlePlayVideo}
-        >          <video 
+        >
+          <video 
             ref={videoRef}
             className="alphabet-video"
             playsInline
+            muted
+            preload="auto"
+            poster={`/assets/level1imgs/${letter}.jpg`}
             key={letter} 
           >            
-          <source 
-              src={`/assets/level1vids/${letter}.mp4`} 
+            <source 
+              src={videoSrc} 
               type="video/mp4" 
-              onError={() => setVideoError(true)}
               key={`source-${letter}`}
             />
             Your browser does not support the video tag.          
-            </video>
-          {!isPlaying && (
+          </video>
+          {(!isPlaying || videoError) && (
             <div className="play-button-overlay">
               <IonIcon icon={playCircle} className="play-icon" />
             </div>
@@ -115,7 +165,8 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
         {renderVideoError()}
         <div className="letter-display">
           <span className="letter-icon">{letter}</span>
-        </div>        {showNavigation && (
+        </div>
+        {showNavigation && (
           <div className="navigation-controls">
             {onPrevious && (
               <IonButton 
@@ -144,4 +195,3 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
 };
 
 export default AlphabetDetail;
-             
