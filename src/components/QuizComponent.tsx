@@ -180,7 +180,6 @@ const quizQuestions: QuizQuestion[] = [  {
     setIsAnswered(true);
     setSelectedAnswer(selectedOption);
 
-    // Check if answer is correct
     if (selectedOption === quizQuestions[currentQuestion].correctAnswer) {
       setScore(score + 1);
     }

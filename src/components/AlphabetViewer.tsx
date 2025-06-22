@@ -29,7 +29,7 @@ const AlphabetViewer: React.FC<AlphabetViewerProps> = ({
     if (isLastLetter) {
       setTimeout(() => {
         setShowQuizModal(true);
-      }, 1500); 
+      },10000); 
     } else {
       setShowQuizModal(false);
     }
@@ -58,12 +58,10 @@ const AlphabetViewer: React.FC<AlphabetViewerProps> = ({
   const handleTakeQuiz = () => {
     setShowQuizModal(false);
     if (onTakeQuiz) {
-      // Ensure we're navigating to the Quiz component
       console.log("Navigating to Quiz component");
       onTakeQuiz();
     } else {
       console.log("No onTakeQuiz handler provided - cannot navigate to quiz");
-      // Don't call onClose() which might be returning to Level 1
     }
   };
 
