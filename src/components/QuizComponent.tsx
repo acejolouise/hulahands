@@ -398,111 +398,111 @@ return (
                   const levelFolder = questionData.level;
                   
                   return (
-  <IonItem 
-          key={index}
-          lines="none"
-           button
-          detail={false}
-          color={
-          isAnswered ? 
-          (option === questionData.correctAnswer ? 'success' : 
-          (option === selectedAnswer && option !== questionData.correctAnswer) ? 'danger' : '') 
-            : ''
-                }
-            onClick={() => handleAnswerClick(option)}
-            disabled={isAnswered}
-           className={`option-item ${
-           isAnswered && option === questionData.correctAnswer ? 'correct-answer' : 
-           isAnswered && option === selectedAnswer ? 'incorrect-answer' : ''
-             }`}
-          >
-    <div className="option-content">
-         <span className="option-label">{optionLetter}</span>
-     {questionData.optionsAreMedia ? (
-    <div className="option-media-container">
-    {optionMediaInfo ? (
-     optionMediaInfo.type === 'video' ? (
-     <video 
-     ref={(el) => setVideoRef(el, optionText)}
-     src={optionMediaInfo.path}
-     className="option-media" 
-     loop
-     muted={true}
-     playsInline
-     webkit-playsinline="true"
-     preload="auto"
-     controls={false}
-     autoPlay={true}
-     onLoadedData={(e) => {
-    const video = e.target as HTMLVideoElement;
-    video.muted = true;
-    video.play().catch(() => {});
-   }}
- onClick={(e) => {
-     e.stopPropagation();
-        if (!isAnswered) {
-       handleAnswerClick(option);
-      }
-     }}
-     ></video>
-    ) : (
-  <img 
-    src={optionMediaInfo.path}
-     alt={`Option ${optionLetter}`}
-     className="option-media"
-     onError={(e) => console.error("Option image error:", e)}
-       />
-       )
-      ) : (
-      questionData.optionMediaType === 'video' || 
-     (questionData.optionMediaType !== 'image' && questionData.mediaType === 'video') ? (
-      <video 
-      ref={(el) => setVideoRef(el, optionText)}
-      src={`/assets/${levelFolder}vids/${optionText}.mp4`}
-      className="option-media"
-      loop
-      muted={true}
-      playsInline
-       webkit-playsinline="true"
-      preload="auto"
-      controls={false}
-      autoPlay={true}
-       onLoadedData={(e) => {
-    const video = e.target as HTMLVideoElement;
+          <IonItem 
+                  key={index}
+                  lines="none"
+                  button
+                  detail={false}
+                  color={
+                  isAnswered ? 
+                  (option === questionData.correctAnswer ? 'success' : 
+                  (option === selectedAnswer && option !== questionData.correctAnswer) ? 'danger' : '') 
+                    : ''
+                        }
+                    onClick={() => handleAnswerClick(option)}
+                    disabled={isAnswered}
+                  className={`option-item ${
+                  isAnswered && option === questionData.correctAnswer ? 'correct-answer' : 
+                  isAnswered && option === selectedAnswer ? 'incorrect-answer' : ''
+                    }`}
+                  >
+            <div className="option-content">
+                <span className="option-label">{optionLetter}</span>
+            {questionData.optionsAreMedia ? (
+            <div className="option-media-container">
+            {optionMediaInfo ? (
+            optionMediaInfo.type === 'video' ? (
+            <video 
+            ref={(el) => setVideoRef(el, optionText)}
+            src={optionMediaInfo.path}
+            className="option-media" 
+            loop
+            muted={true}
+            playsInline
+            webkit-playsinline="true"
+            preload="auto"
+            controls={false}
+            autoPlay={true}
+            onLoadedData={(e) => {
+            const video = e.target as HTMLVideoElement;
             video.muted = true;
             video.play().catch(() => {});
-            }}
-           onClick={(e) => {
-              e.stopPropagation();
-             if (!isAnswered) {
-             handleAnswerClick(option);
-         }
           }}
-          ></video>
-           ) : (
-          <img 
-              src={`/assets/${levelFolder}pics/${optionText}.png`}
-              alt={`Option ${optionLetter}`}
-               className="option-media"
-             onError={(e) => console.error("Option image error:", e)}
-           />
-               )
+              onClick={(e) => {
+            e.stopPropagation();
+                if (!isAnswered) {
+              handleAnswerClick(option);
+              }
+            }}
+            ></video>
+            ) : (
+        <img 
+          src={optionMediaInfo.path}
+          alt={`Option ${optionLetter}`}
+          className="option-media"
+          onError={(e) => console.error("Option image error:", e)}
+            />
+            )
+            ) : (
+            questionData.optionMediaType === 'video' || 
+          (questionData.optionMediaType !== 'image' && questionData.mediaType === 'video') ? (
+            <video 
+            ref={(el) => setVideoRef(el, optionText)}
+            src={`/assets/${levelFolder}vids/${optionText}.mp4`}
+            className="option-media"
+            loop
+            muted={true}
+            playsInline
+            webkit-playsinline="true"
+            preload="auto"
+            controls={false}
+            autoPlay={true}
+            onLoadedData={(e) => {
+          const video = e.target as HTMLVideoElement;
+                  video.muted = true;
+                  video.play().catch(() => {});
+                  }}
+                onClick={(e) => {
+                    e.stopPropagation();
+                  if (!isAnswered) {
+                  handleAnswerClick(option);
+              }
+                }}
+                ></video>
+                ) : (
+                <img 
+                    src={`/assets/${levelFolder}pics/${optionText}.png`}
+                    alt={`Option ${optionLetter}`}
+                    className="option-media"
+                  onError={(e) => console.error("Option image error:", e)}
+                />
+                    )
+                    )}
+                  </div>
+                ) : (
+                <span className="option-text">{optionText}</span>
               )}
-             </div>
-           ) : (
-           <span className="option-text">{optionText}</span>
-         )}
+              </div>
+                            
+              {isAnswered && option === questionData.correctAnswer && (
+            <IonIcon icon={checkmarkCircle} color="success" slot="end" />
+                )}
+                {isAnswered && option === selectedAnswer && option !== questionData.correctAnswer && (
+              <IonIcon icon={closeCircle} color="danger" slot="end" />)}
+          </IonItem>
+            );
+          })}
         </div>
-                      
-         {isAnswered && option === questionData.correctAnswer && (
-      <IonIcon icon={checkmarkCircle} color="success" slot="end" />
-          )}
-           {isAnswered && option === selectedAnswer && option !== questionData.correctAnswer && (
-        <IonIcon icon={closeCircle} color="danger" slot="end" />)}
-    </IonItem>
-      );
-    })}
-   </div>
               
           {isAnswered && ( 
                 <>
