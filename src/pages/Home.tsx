@@ -1,4 +1,4 @@
-import { IonButton, IonContent, IonHeader, IonPage, } from '@ionic/react';
+import { IonButton, IonContent, IonPage } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import './Home.css';
 
@@ -11,20 +11,25 @@ const Home: React.FC = () => {
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-      </IonHeader>
-      <IonContent fullscreen className="ion-padding">
-        <IonHeader collapse="condense">
-          
-        </IonHeader>
-        
+    <IonPage className="home-page">
+      <IonContent fullscreen>
         <div className="container">
+          <h1 className="title">HulaHands</h1>
+          
           <div className="logo-container">
-            <img src="/assets/logo.png" alt="Logo" className="logo" />
+            <img src="/assets/placeholder/placeholder.png" alt="HulaHands Logo" className="logo" />
+            <div className="play-button">
+            </div>
           </div>
-          <IonButton expand="block" className="start-button" onClick={goToLevels} routerLink="/levels" routerDirection="forward">
-            Start
+          
+          <IonButton 
+            expand="block" 
+            className="start-button" 
+            onClick={goToLevels} 
+            routerLink="/levels" 
+            routerDirection="forward"
+          >
+            START
           </IonButton>
         </div>
       </IonContent>
