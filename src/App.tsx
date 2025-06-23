@@ -2,6 +2,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
+import Categories from './pages/Categories';
 import Levels from './pages/Levels';
 import Level1Page from './pages/Level1Page';
 import Level2Page from './pages/Level2Page';
@@ -32,13 +33,24 @@ setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
+    <IonReactRouter>      <IonRouterOutlet>
         <Route exact path="/home">
           <Home />
         </Route>
-        <Route exact path="/levels">
+        <Route exact path="/categories">
+          <Categories />
+        </Route>
+        <Route exact path="/category/:categoryId">
           <Levels />
+        </Route>
+        <Route exact path="/category/:categoryId/level/1">
+          <Level1Page />
+        </Route>
+        <Route exact path="/category/:categoryId/level/2">
+          <Level2Page />
+        </Route>
+        <Route exact path="/category/:categoryId/level/3">
+          <Level3Page />
         </Route>
         <Route exact path="/level/1">
           <Level1Page />

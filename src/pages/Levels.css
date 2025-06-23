@@ -1,16 +1,30 @@
+.levels-content {
+  --background: #050124;
+}
+
+.transparent-toolbar {
+  --background: transparent;
+  --color: white;
+  --border-style: none;
+}
+
 .levels-grid {
   padding: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .level-card {
   text-align: center;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
-  margin: 10px;
-  border-radius: 10px;
+  margin: 20px;
+  border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background: white;
-  height: 60px;
+  height: 120px;
   overflow: hidden;
   --background: white;
   --color: black;
@@ -25,12 +39,8 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.level-card:active {
-  transform: scale(0.95);
-}
-
 .level-title {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
 }
@@ -44,16 +54,10 @@
 }
 
 .level-number {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #020029;
-  color: white;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
+  text-align: center;
+  line-height: 1.2;
 }
 
 .level-text {

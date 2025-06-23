@@ -4,10 +4,9 @@ import './Home.css';
 
 const Home: React.FC = () => {
   const history = useHistory();
-
-  const goToLevels = () => {
-    console.log('Navigating to levels page');
-    history.push('/levels');
+  const goToCategories = () => {
+    console.log('Navigating to categories page');
+    history.push('/categories');
   };
 
   return (
@@ -21,12 +20,11 @@ const Home: React.FC = () => {
             <div className="play-button">
             </div>
           </div>
-          
-          <IonButton 
+            <IonButton 
             expand="block" 
             className="start-button" 
-            onClick={goToLevels} 
-            routerLink="/levels" 
+            onClick={goToCategories} 
+            routerLink="/categories" 
             routerDirection="forward"
           >
             START

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import './Levels.css';
 import {
   IonBackButton,
@@ -16,35 +16,70 @@ import {
   IonTitle
 } from '@ionic/react';
 
+interface LevelsParams {
+  categoryId: string;
+}
 
 const Levels: React.FC = () => {
   const history = useHistory();
-  const levels = Array.from({ length: 20 }, (_, i) => i + 1);  const handleLevelClick = (levelNumber: number) => {
-    console.log(`Level ${levelNumber} selected`);
-    history.push(`/level/${levelNumber}`);
+  const { categoryId } = useParams<LevelsParams>();
+  
+  const getCategoryLevels = (categoryId: string) => {
+    switch (categoryId) {
+      case 'alphabets':
+        return 3;
+      case 'numbers':
+        return 0;
+      case 'vocabulary':
+        return 0;
+      case 'phrases':
+        return 0;
+      case 'sentences':
+        return 0;
+      default:
+        return 0; 
+    }
   };
-
+  
+  const levelCount = getCategoryLevels(categoryId);
+  const levels = Array.from({ length: levelCount }, (_, i) => i + 1);
+  
+  const getCategoryTitle = (categoryId: string) => {
+    switch (categoryId) {
+      case 'alphabets': return 'FSL Alphabets';
+      case 'numbers': return 'FSL Numbers';
+      case 'vocabulary': return 'Basic Vocabulary';
+      case 'phrases': return 'Common Phrases';
+      case 'sentences': return 'Sentences';
+      default: return 'Levels';
+    }
+  };
+  
+  const handleLevelClick = (levelNumber: number) => {
+    console.log(`Level ${levelNumber} for ${categoryId} selected`);
+    history.push(`/category/${categoryId}/level/${levelNumber}`);
+  };
   return (
-    <IonPage>        <IonHeader className="ion-no-border">        
-            <IonToolbar className="transparent-toolbar">
+    <IonPage>
+      <IonHeader className="ion-no-border">        
+        <IonToolbar className="transparent-toolbar">
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/home" />
+            <IonBackButton defaultHref="/categories" />
           </IonButtons>
-          <IonTitle className="ion-text-center">Levels</IonTitle>
+          <IonTitle className="ion-text-center">{getCategoryTitle(categoryId)}</IonTitle>
         </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
+      </IonHeader>      <IonContent fullscreen className="levels-content">
         <IonGrid className="levels-grid">
           <IonRow className="ion-justify-content-center">
             {levels.map((level) => (
-                <IonCol size="6" size-md="6" size-lg="6" key={level}>                
+              <IonCol size="10" size-md="6" size-lg="4" key={level}>                
                 <IonCard 
                   className="level-card" 
                   onClick={() => handleLevelClick(level)}
                   button={true}
                 >
                   <IonCardContent className="level-content">
-                    <div className="level-text">Level {level}</div>
+                    <div className="level-number">Level<br />{level}</div>
                   </IonCardContent>
                 </IonCard>
               </IonCol>
