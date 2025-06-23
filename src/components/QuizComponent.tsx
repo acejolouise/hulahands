@@ -17,6 +17,7 @@ interface QuizComponentProps {
 
 interface QuizQuestion {
   id: number;
+  level: string; 
   question: string;
   options: string[];
   mediaType: 'video' | 'image' | 'none';
@@ -31,6 +32,7 @@ interface QuizQuestion {
 const quizQuestions: QuizQuestion[] = [
   {
     id: 1,
+    level: 'level1',
     question: "Which video shows the right sign for letter A?",
     options: [
       "a. B",
@@ -53,6 +55,7 @@ const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 2,
+    level: 'level1',
     question: "What is the correct letter shown in the picture?",
     options: [
       "a. D",
@@ -67,6 +70,7 @@ const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 3,
+    level: 'level1',
     question: "What letter is this?",
     options: [
       "a. C",
@@ -81,6 +85,7 @@ const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 4,
+    level: 'level1',
     question: "Which video shows the correct sign for the letter D?",
     options: [
       "a. I",
@@ -102,6 +107,7 @@ const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 5,
+    level: 'level1',
     question: "Which picture matches the correct sign for letter E?",
     options: [
       "a. E",
@@ -123,6 +129,7 @@ const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 6,
+    level: 'level1',
     question: "Which video matches the correct sign for the letter F?",
     options: [
       "a. A",
@@ -144,6 +151,7 @@ const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 7,
+    level: 'level1',
     question: "What letter is this?",
     options: [
       "a. A",
@@ -158,6 +166,7 @@ const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 8,
+    level: 'level1',
     question: "Choose the video that shows the correct sign for the letter H:",
     options: [
       "a. H",
@@ -179,6 +188,7 @@ const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 9,
+    level: 'level1',
     question: "What is the letter being shown in the picture?",
     options: [
       "a. J",
@@ -193,6 +203,7 @@ const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 10,
+    level: 'level1',
     question: "What letter is this? It's familiar, right?",
     options: [
       "a. A",
@@ -384,6 +395,7 @@ return (
                   const optionText = option.split('.')[1]?.trim() || '';
                   const questionData = quizQuestions[currentQuestion];
                   const optionMediaInfo = questionData.optionMediaPaths?.[optionText];
+                  const levelFolder = questionData.level;
                   
                   return (
   <IonItem 
@@ -446,7 +458,7 @@ return (
      (questionData.optionMediaType !== 'image' && questionData.mediaType === 'video') ? (
       <video 
       ref={(el) => setVideoRef(el, optionText)}
-      src={`/assets/level1vids/${optionText}.mp4`}
+      src={`/assets/${levelFolder}vids/${optionText}.mp4`}
       className="option-media"
       loop
       muted={true}
@@ -469,7 +481,7 @@ return (
           ></video>
            ) : (
           <img 
-              src={`/assets/level1pics/${optionText}.png`}
+              src={`/assets/${levelFolder}pics/${optionText}.png`}
               alt={`Option ${optionLetter}`}
                className="option-media"
              onError={(e) => console.error("Option image error:", e)}

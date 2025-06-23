@@ -198,16 +198,6 @@ ion-card-title {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.character-icon {
-  position: absolute;
-  right: 10%;
-  top: 0;
-  width: 60px;
-  height: 60px;
-  background-image: url('/assets/placeholder/character.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
 
 .options-list {
   display: grid;
