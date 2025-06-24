@@ -68,18 +68,20 @@ const Levels: React.FC = () => {
           </IonButtons>
           <IonTitle className="ion-text-center">{getCategoryTitle(categoryId)}</IonTitle>
         </IonToolbar>
-      </IonHeader>      <IonContent fullscreen className="levels-content">
+      </IonHeader>      
+      <IonContent fullscreen className="levels-content">
         <IonGrid className="levels-grid">
-          <IonRow className="ion-justify-content-center">
+          <IonRow className="ion-justify-content-center ion-align-items-center">
             {levels.map((level) => (
-              <IonCol size="10" size-md="6" size-lg="4" key={level}>                
+              <IonCol size="12" className="level-col" key={level}>                
                 <IonCard 
                   className="level-card" 
                   onClick={() => handleLevelClick(level)}
                   button={true}
                 >
                   <IonCardContent className="level-content">
-                    <div className="level-number">Level<br />{level}</div>
+                    <div className="level-title">Level</div>
+                    <div className="level-number">{level}</div>
                   </IonCardContent>
                 </IonCard>
               </IonCol>

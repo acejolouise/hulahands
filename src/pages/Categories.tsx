@@ -45,10 +45,11 @@ const Categories: React.FC = () => {
       <IonContent fullscreen className="categories-content">
         <IonGrid className="categories-grid">
           <IonRow>
-            {categories.map((category) => (
+            {categories.map((category, index) => (
               <IonCol 
                 size="6" 
                 key={category.id}
+                className={index === 4 ? 'centered-col' : ''}
               >
                 <IonCard 
                   className="category-card" 
