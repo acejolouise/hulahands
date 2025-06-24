@@ -10,6 +10,7 @@ import Level3Page from './pages/Level3Page';
 import Level4Page from './pages/Level4Page';
 import Level5Page from './pages/Level5Page';
 
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -52,25 +53,15 @@ const App: React.FC = () => (
         <Route exact path="/category/:categoryId/level/3">
           <Level3Page />
         </Route>
-        <Route exact path="/level/1">
-          <Level1Page />
-        </Route>
-        <Route exact path="/level/2">
-          <Level2Page />
-        </Route>
-        <Route exact path="/level/3">
-          <Level3Page />
-        </Route>
-        <Route exact path="/level/4">
+        <Route exact path="/category/:categoryId/level/4">
           <Level4Page />
         </Route>
-        <Route exact path="/level/5">
+        <Route exact path="/category/:categoryId/level/5">
           <Level5Page />
         </Route>
-  
-
-
-   
+       
+        
+ 
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
