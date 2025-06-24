@@ -19,13 +19,13 @@ const Level3Page: React.FC = () => {
           <IonButtons slot="start">
             <IonBackButton defaultHref="/levels" />
           </IonButtons>
-          <IonTitle className="ion-text-center">Level 1</IonTitle>
+          <IonTitle className="ion-text-center">Level 3</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-padding">
         <div className="level1-container">
           <h2>FSL Alphabets</h2>
-            <div className="alphabet-list">
+          <div className="alphabet-list">
             <button 
               className="letter-button"
               onClick={() => console.log('Alphabet button clicked')}
@@ -34,39 +34,57 @@ const Level3Page: React.FC = () => {
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter A clicked')}
+              onClick={() => console.log('Letter R clicked')}
             >
-              A
+              R
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter B clicked')}
+              onClick={() => console.log('Letter S clicked')}
             >
-              B
+              S
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter C clicked')}
+              onClick={() => console.log('Letter T clicked')}
             >
-              C
+              T
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter D clicked')}
+              onClick={() => console.log('Letter U clicked')}
             >
-              D
+              U
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter E clicked')}
+              onClick={() => console.log('Letter V clicked')}
             >
-              E
+              V
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter F clicked')}
+              onClick={() => console.log('Letter W clicked')}
             >
-              F
+              W
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => console.log('Letter X clicked')}
+            >
+              X
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => console.log('Letter Y clicked')}
+            >
+              Y
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => console.log('Letter Z clicked')}
+            >
+              Z
             </button>
             <button 
               className="letter-button"

@@ -35,8 +35,8 @@ const Level1Page: React.FC = () => {
   };
 
   const handleStartQuiz = () => {
-    setShowAlphabetViewer(false);  // Hide the alphabet viewer
-    setShowQuiz(true);             // Show the quiz component
+    setShowAlphabetViewer(false);  
+    setShowQuiz(true);             
   };
   
   return (
@@ -45,11 +45,11 @@ const Level1Page: React.FC = () => {
         <AlphabetViewer
           initialLetter={currentLetter}
           onClose={() => setShowAlphabetViewer(false)}
-          onTakeQuiz={handleStartQuiz}  // Add this prop to navigate to quiz
+          onTakeQuiz={handleStartQuiz}  
         />
       )}
       {showQuiz && (
-        <QuizComponent onClose={handleQuizClose} />
+        <QuizComponent onClose={handleQuizClose} level={1} />
       )}
       <IonHeader className="ion-no-border">
         <IonToolbar className="transparent-toolbar">

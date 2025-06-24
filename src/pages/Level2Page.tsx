@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   IonContent, 
   IonHeader, 
@@ -8,18 +8,60 @@ import {
   IonButtons,
   IonBackButton
 } from '@ionic/react';
+import AlphabetViewer from '../components/AlphabetViewer';
+import QuizComponent from '../components/QuizComponent';
 import './Level2Page.css';
 
 const Level2Page: React.FC = () => {
+  const [showAlphabetViewer, setShowAlphabetViewer] = useState(false);
+  const [currentLetter, setCurrentLetter] = useState('J');
+  const [showQuiz, setShowQuiz] = useState(false);
+
+  const handleLetterClick = (letter: string) => {
+    setCurrentLetter(letter);
+    setShowAlphabetViewer(true);
+  };
+
+  const handleAlphabetClick = () => {
+    setCurrentLetter('J');
+    setShowAlphabetViewer(true);
+  };
+  
+  const handleQuizClick = () => {
+    setShowQuiz(true);
+  };
+  
+  const handleQuizClose = () => {
+    setShowQuiz(false);
+  };
+
+  const handleStartQuiz = () => {
+    setShowAlphabetViewer(false);  
+    setShowQuiz(true);             
+  };
+
+  const level2Letters = ['J', 'K', 'L', 'M', 'N', 'Ñ', 'NG', 'O', 'P', 'Q'];
 
   return (
     <IonPage>
+      {showAlphabetViewer && (
+        <AlphabetViewer
+          initialLetter={currentLetter}
+          level={2}
+          availableLetters={level2Letters}
+          onClose={() => setShowAlphabetViewer(false)}
+          onTakeQuiz={handleStartQuiz}  
+        />
+      )}
+      {showQuiz && (
+        <QuizComponent onClose={handleQuizClose} level={2} />
+      )}
       <IonHeader className="ion-no-border">
         <IonToolbar className="transparent-toolbar">
           <IonButtons slot="start">
             <IonBackButton defaultHref="/levels" />
           </IonButtons>
-          <IonTitle className="ion-text-center">Level 1</IonTitle>
+          <IonTitle className="ion-text-center">Level 2</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-padding">
@@ -28,49 +70,73 @@ const Level2Page: React.FC = () => {
             <div className="alphabet-list">
             <button 
               className="letter-button"
-              onClick={() => console.log('Alphabet button clicked')}
+              onClick={handleAlphabetClick}
             >
               Alphabet
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter A clicked')}
+              onClick={() => handleLetterClick('J')}
             >
-              A
+              J
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter B clicked')}
+              onClick={() => handleLetterClick('K')}
             >
-              B
+              K
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter C clicked')}
+              onClick={() => handleLetterClick('L')}
             >
-              C
+              L
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter D clicked')}
+              onClick={() => handleLetterClick('M')}
             >
-              D
+              M
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter E clicked')}
+              onClick={() => handleLetterClick('N')}
             >
-              E
+              N
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter F clicked')}
+              onClick={() => handleLetterClick('Ñ')}
             >
-              F
+              Ñ
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Quiz button clicked')}
+              onClick={() => handleLetterClick('NG')}
+            >
+              NG
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => handleLetterClick('O')}
+            >
+              O
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => handleLetterClick('P')}
+            >
+              P
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => handleLetterClick('Q')}
+            >
+              Q
+            </button>
+            <button 
+              className="letter-button"
+              onClick={handleQuizClick}
             >
               Let's see what you remember!
             </button>

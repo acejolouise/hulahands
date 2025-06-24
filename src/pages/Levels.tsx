@@ -79,9 +79,11 @@ const Levels: React.FC = () => {
                   onClick={() => handleLevelClick(level)}
                   button={true}
                 >
-                  <IonCardContent className="level-content">
-                    <div className="level-title">Level</div>
-                    <div className="level-number">{level}</div>
+                  <IonCardContent className="level-content ion-text-center">
+                    <div className="level-info">
+                      <div className="level-title">Level</div>
+                      <div className="level-number">{level}</div>
+                    </div>
                   </IonCardContent>
                 </IonCard>
               </IonCol>

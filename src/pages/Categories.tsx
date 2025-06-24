@@ -20,11 +20,11 @@ const Categories: React.FC = () => {
   const history = useHistory();
 
   const categories = [
-    { id: 'alphabets', name: 'FSL Alphabets', icon: '/assets/placeholder/alphabet-blocks.png' },
-    { id: 'numbers', name: 'FSL Numbers', icon: '/assets/placeholder/numbers-123.png' },
-    { id: 'vocabulary', name: 'FSL basic vocabulary words', icon: '/assets/placeholder/child-waving.png' },
-    { id: 'phrases', name: 'FSL common phrases', icon: '/assets/placeholder/speech-bubbles.png' },
-    { id: 'sentences', name: 'FSL Sentences', icon: '/assets/placeholder/pencil.png' },
+    { id: 'alphabets', name: 'FSL Alphabets', icon: '/assets/placeholder/placeholder.png' },
+    { id: 'numbers', name: 'FSL Numbers', icon: '/assets/placeholder/placeholder.png' },
+    { id: 'vocabulary', name: 'FSL basic vocabulary words', icon: '/assets/placeholder/placeholder.png' },
+    { id: 'phrases', name: 'FSL common phrases', icon: '/assets/placeholder/placeholder.png' },
+    { id: 'sentences', name: 'FSL Sentences', icon: '/assets/placeholder/placeholder.png' },
   ];
 
   const handleCategoryClick = (categoryId: string) => {

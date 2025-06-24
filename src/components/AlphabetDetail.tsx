@@ -5,6 +5,7 @@ import './AlphabetDetail.css';
 
 interface AlphabetDetailProps {
   letter: string;
+  level?: number;
   onNext?: () => void;
   onPrevious?: () => void;
   showNavigation?: boolean;
@@ -12,6 +13,7 @@ interface AlphabetDetailProps {
 
 const AlphabetDetail: React.FC<AlphabetDetailProps> = ({ 
   letter, 
+  level = 1,
   onNext, 
   onPrevious, 
   showNavigation = true 
@@ -20,7 +22,7 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
   const [videoError, setVideoError] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   
-  const videoSrc = `/assets/level1vids/${letter}.mp4`;
+  const videoSrc = `/assets/level${level}vids/${letter}.mp4`;
   const videoRef = useRef<HTMLVideoElement>(null);
   
   const handlePlayVideo = () => {
@@ -146,7 +148,7 @@ const AlphabetDetail: React.FC<AlphabetDetailProps> = ({
             playsInline
             muted
             preload="auto"
-            poster={`/assets/level1imgs/${letter}.jpg`}
+            poster={`/assets/level${level}imgs/${letter}.jpg`}
             key={letter} 
           >            
             <source 

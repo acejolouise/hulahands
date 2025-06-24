@@ -3,22 +3,26 @@ import AlphabetDetail from './AlphabetDetail';
 import './AlphabetViewer.css';
 
 interface AlphabetViewerProps {
-  initialLetter?: string;
+  initialLetter: string;
+  level?: number;
+  availableLetters?: string[];
   onClose: () => void;
   onTakeQuiz?: () => void;
 }
 
-const AlphabetViewer: React.FC<AlphabetViewerProps> = ({
-  initialLetter = 'A',
-  onClose,
-  onTakeQuiz
+const AlphabetViewer: React.FC<AlphabetViewerProps> = ({ 
+  initialLetter, 
+  level = 1,
+  availableLetters,
+  onClose, 
+  onTakeQuiz 
 }) => {
-  const alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+  const letters = availableLetters || ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'NG', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   const [currentLetter, setCurrentLetter] = useState(initialLetter);
   const [showQuizModal, setShowQuizModal] = useState(false);
   
-  const currentIndex = alphabets.indexOf(currentLetter);
-  const isLastLetter = currentIndex === alphabets.length - 1;
+  const currentIndex = letters.indexOf(currentLetter);
+  const isLastLetter = currentIndex === letters.length - 1;
   const isFirstLetter = currentIndex === 0;
   
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -37,7 +41,7 @@ const AlphabetViewer: React.FC<AlphabetViewerProps> = ({
     const handleNext = () => {
     if (!isLastLetter) {
       const nextIndex = currentIndex + 1;
-      setCurrentLetter(alphabets[nextIndex]);
+      setCurrentLetter(letters[nextIndex]);
     } else if (!showQuizModal) {
       setShowQuizModal(true);
     }
@@ -46,7 +50,7 @@ const AlphabetViewer: React.FC<AlphabetViewerProps> = ({
   const handlePrevious = () => {
     if (!isFirstLetter) {
       const prevIndex = currentIndex - 1;
-      setCurrentLetter(alphabets[prevIndex]);
+      setCurrentLetter(letters[prevIndex]);
     }
   };
   
@@ -112,8 +116,9 @@ const AlphabetViewer: React.FC<AlphabetViewerProps> = ({
       </button>      
       <AlphabetDetail
         letter={currentLetter}
+        level={level}
         onNext={handleNext}
-        onPrevious={!isFirstLetter ? handlePrevious : undefined}
+        onPrevious={handlePrevious}
         showNavigation={true}
       />
       {isLastLetter && !showQuizModal && (

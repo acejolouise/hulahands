@@ -13,6 +13,7 @@ import './QuizComponent.css';
 
 interface QuizComponentProps {
   onClose: () => void;
+  level?: number;
 }
 
 interface QuizQuestion {
@@ -215,10 +216,204 @@ const quizQuestions: QuizQuestion[] = [
     mediaPath: '/assets/level1vids/E.mp4',
     correctAnswer: "c. E",
     optionsAreMedia: false
+  },
+  // Level 2 Questions
+  {
+    id: 11,
+    level: 'level2',
+    question: "What sign is being shown in the picture?",
+    options: [
+      "a. N",
+      "b. M",
+      "c. A",
+      "d. O"
+    ],
+    mediaType: 'image',
+    mediaPath: '/assets/level2pics/M.jpg',
+    correctAnswer: "b. M",
+    optionsAreMedia: false
+  },
+  {
+    id: 12,
+    level: 'level2',
+    question: "Which picture shows the right sign for letter L?",
+    options: [
+      "a. M",
+      "b. K",
+      "c. L",
+      "d. O"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "c. L",
+    optionsAreMedia: true,
+    optionMediaType: 'image',
+    optionMediaPaths: {
+      'M': { type: 'image', path: '/assets/level2pics/M.jpg' },
+      'K': { type: 'image', path: '/assets/level2pics/K.jpg' },
+      'L': { type: 'image', path: '/assets/level2pics/L.jpg' },
+      'O': { type: 'image', path: '/assets/level2pics/O.jpg' }
+    }
+  },
+  {
+    id: 13,
+    level: 'level2',
+    question: "Which hand shape matches the sign Ñ?",
+    options: [
+      "a. B",
+      "b. F",
+      "c. Ñ",
+      "d. Q"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "c. Ñ",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      'B': { type: 'video', path: '/assets/level1vids/B.mp4' },
+      'F': { type: 'video', path: '/assets/level1vids/F.mp4' },
+      'Ñ': { type: 'video', path: '/assets/level2vids/Ñ.mp4' },
+      'Q': { type: 'video', path: '/assets/level2vids/Q.mp4' }
+    }
+  },
+  {
+    id: 14,
+    level: 'level2',
+    question: "If you see the sign of the letter \"J\" Which picture matches?",
+    options: [
+      "a. J",
+      "b. H",
+      "c. K",
+      "d. L"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "a. J",
+    optionsAreMedia: true,
+    optionMediaType: 'image',
+    optionMediaPaths: {
+      'J': { type: 'image', path: '/assets/level2pics/J.jpg' },
+      'H': { type: 'image', path: '/assets/level1pics/H.png' },
+      'K': { type: 'image', path: '/assets/level2pics/K.jpg' },
+      'L': { type: 'image', path: '/assets/level2pics/L.jpg' }
+    }
+  },
+  {
+    id: 15,
+    level: 'level2',
+    question: "What sign is being shown in the picture?",
+    options: [
+      "a. K",
+      "b. Q",
+      "c. L",
+      "d. D"
+    ],
+    mediaType: 'image',
+    mediaPath: '/assets/level2pics/Q.jpg',
+    correctAnswer: "b. Q",
+    optionsAreMedia: false
+  },
+  {
+    id: 16,
+    level: 'level2',
+    question: "What letter is this?",
+    options: [
+      "a. O",
+      "b. Q",
+      "c. P",
+      "d. M"
+    ],
+    mediaType: 'image',
+    mediaPath: '/assets/level2pics/P.jpg',
+    correctAnswer: "c. P",
+    optionsAreMedia: false
+  },
+  {
+    id: 17,
+    level: 'level2',
+    question: "Which of these pictures shows the right sign for letter K?",
+    options: [
+      "a. O",
+      "b. J",
+      "c. G",
+      "d. K"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "d. K",
+    optionsAreMedia: true,
+    optionMediaType: 'image',
+    optionMediaPaths: {
+      'O': { type: 'image', path: '/assets/level2pics/O.jpg' },
+      'J': { type: 'image', path: '/assets/level2pics/J.jpg' },
+      'G': { type: 'image', path: '/assets/level1pics/G.png' },
+      'K': { type: 'image', path: '/assets/level2pics/K.jpg' }
+    }
+  },
+  {
+    id: 18,
+    level: 'level2',
+    question: "What letter is being shown in the picture?",
+    options: [
+      "a. K",
+      "b. O",
+      "c. M",
+      "d. A"
+    ],
+    mediaType: 'image',
+    mediaPath: '/assets/level2pics/O.jpg',
+    correctAnswer: "b. O",
+    optionsAreMedia: false
+  },
+  {
+    id: 19,
+    level: 'level2',
+    question: "Which video shows the correct sign of NG?",
+    options: [
+      "a. O",
+      "b. D",
+      "c. L",
+      "d. NG"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "d. NG",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      'O': { type: 'video', path: '/assets/level2vids/O.mp4' },
+      'D': { type: 'video', path: '/assets/level1vids/D.mp4' },
+      'L': { type: 'video', path: '/assets/level2vids/L.mp4' },
+      'NG': { type: 'video', path: '/assets/level2vids/NG.mp4' }
+    }
+  },
+  {
+    id: 20,
+    level: 'level2',
+    question: "Observe the sign of \"N.\" Which picture matches?",
+    options: [
+      "a. B",
+      "b. O",
+      "c. N",
+      "d. M"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "c. N",
+    optionsAreMedia: true,
+    optionMediaType: 'image',
+    optionMediaPaths: {
+      'B': { type: 'image', path: '/assets/level1pics/B.png' },
+      'O': { type: 'image', path: '/assets/level2pics/O.jpg' },
+      'N': { type: 'image', path: '/assets/level2pics/N.jpg' },
+      'M': { type: 'image', path: '/assets/level2pics/M.jpg' }
+    }
   }
 ];
 
-const QuizComponent: React.FC<QuizComponentProps> = ({ onClose }) => {
+const QuizComponent: React.FC<QuizComponentProps> = ({ onClose, level = 1 }) => {
+  const levelQuestions = quizQuestions.filter(q => q.level === `level${level}`);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
@@ -233,12 +428,12 @@ const QuizComponent: React.FC<QuizComponentProps> = ({ onClose }) => {
     setTimeLeft(10); 
 
     const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < quizQuestions.length) {
+    if (nextQuestion < levelQuestions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowScore(true);
     }
-  }, [currentQuestion]);
+  }, [currentQuestion, levelQuestions.length]);
 
   const handleAnswerClick = useCallback((selectedOption: string) => {
     if (isAnswered) return; 
@@ -246,7 +441,7 @@ const QuizComponent: React.FC<QuizComponentProps> = ({ onClose }) => {
     setIsAnswered(true);
     setSelectedAnswer(selectedOption);
 
-    if (selectedOption === quizQuestions[currentQuestion].correctAnswer) {
+    if (selectedOption === levelQuestions[currentQuestion].correctAnswer) {
       setScore(prevScore => prevScore + 1);
     }
 
@@ -259,7 +454,7 @@ const QuizComponent: React.FC<QuizComponentProps> = ({ onClose }) => {
         video.play().catch(err => console.error("Error playing video after answer:", err));
       }, 100);
     }
-      }, [isAnswered, currentQuestion]);
+  }, [isAnswered, currentQuestion, levelQuestions]);
 
   useEffect(() => {
     if (showScore || isAnswered) return;
@@ -287,15 +482,19 @@ const QuizComponent: React.FC<QuizComponentProps> = ({ onClose }) => {
 
   useEffect(() => {
     const playAllVideos = () => {
-      const questionData = quizQuestions[currentQuestion];
-      if (questionData.optionsAreMedia && questionData.optionMediaType === 'video') {
+      const questionData = levelQuestions[currentQuestion];
+      if (questionData?.optionsAreMedia && questionData.optionMediaType === 'video') {
         const videoElements = document.querySelectorAll('video.option-media');
         
         videoElements.forEach(video => {
-          if (video instanceof HTMLVideoElement) {
-            video.muted = true;
+          if (video instanceof HTMLVideoElement) {            video.muted = true;
             video.setAttribute('playsinline', '');
             video.setAttribute('webkit-playsinline', '');
+            video.removeAttribute('controls');
+            video.controls = false;
+            video.style.width = '100%';
+            video.style.height = '100%';
+            video.style.objectFit = 'contain';
             video.loop = true;
             
             const attemptPlay = () => {
@@ -339,7 +538,7 @@ const QuizComponent: React.FC<QuizComponentProps> = ({ onClose }) => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('focus', playAllVideos);
     };
-  }, [currentQuestion]);
+  }, [currentQuestion, levelQuestions]);
 
 return (
    <div className="quiz-container">
@@ -362,26 +561,27 @@ return (
           </div>
  <IonCard className="question-card">
      <IonCardHeader>
-      <IonCardTitle>{quizQuestions[currentQuestion].question}</IonCardTitle>
+      <IonCardTitle>{levelQuestions[currentQuestion]?.question}</IonCardTitle>
          </IonCardHeader>
             <IonCardContent>
-              {quizQuestions[currentQuestion].showQuestionMedia !== false && quizQuestions[currentQuestion].mediaType !== 'none' && (
+              {levelQuestions[currentQuestion]?.showQuestionMedia !== false && levelQuestions[currentQuestion]?.mediaType !== 'none' && (
                 <div className="main-media-container">
-                  {quizQuestions[currentQuestion].mediaType === 'video' && 
-                   quizQuestions[currentQuestion].mediaPath && (
+                  {levelQuestions[currentQuestion].mediaType === 'video' && 
+                   levelQuestions[currentQuestion].mediaPath && (
                      <video 
-                      src={quizQuestions[currentQuestion].mediaPath}
-                      controls
+                      src={levelQuestions[currentQuestion].mediaPath}
                       autoPlay
                       loop
+                      muted
+                      playsInline
                       className="quiz-media"
                       onError={(e) => console.error("Video error:", e)}
                     ></video>
                   )}
-                  {quizQuestions[currentQuestion].mediaType === 'image' && 
-                   quizQuestions[currentQuestion].mediaPath && (
+                  {levelQuestions[currentQuestion].mediaType === 'image' && 
+                   levelQuestions[currentQuestion].mediaPath && (
                     <img 
-                      src={quizQuestions[currentQuestion].mediaPath}
+                      src={levelQuestions[currentQuestion].mediaPath}
                       alt="Quiz visual"
                       className="quiz-media"
                       onError={(e) => console.error("Image error:", e)}
@@ -390,10 +590,10 @@ return (
                 </div>
               )}
               <div className="options-list">
-                {quizQuestions[currentQuestion].options.map((option, index) => {
+                {levelQuestions[currentQuestion]?.options.map((option, index) => {
+                  const questionData = levelQuestions[currentQuestion];
                   const optionLetter = option.split('.')[0].trim();
                   const optionText = option.split('.')[1]?.trim() || '';
-                  const questionData = quizQuestions[currentQuestion];
                   const optionMediaInfo = questionData.optionMediaPaths?.[optionText];
                   const levelFolder = questionData.level;
                   
@@ -421,8 +621,7 @@ return (
             {questionData.optionsAreMedia ? (
             <div className="option-media-container">
             {optionMediaInfo ? (
-            optionMediaInfo.type === 'video' ? (
-            <video 
+            optionMediaInfo.type === 'video' ? (            <video 
             ref={(el) => setVideoRef(el, optionText)}
             src={optionMediaInfo.path}
             className="option-media" 
@@ -431,11 +630,12 @@ return (
             playsInline
             webkit-playsinline="true"
             preload="auto"
-            controls={false}
             autoPlay={true}
+            controls={false}
             onLoadedData={(e) => {
             const video = e.target as HTMLVideoElement;
             video.muted = true;
+            video.controls = false;
             video.play().catch(() => {});
           }}
               onClick={(e) => {
@@ -455,8 +655,7 @@ return (
             )
             ) : (
             questionData.optionMediaType === 'video' || 
-          (questionData.optionMediaType !== 'image' && questionData.mediaType === 'video') ? (
-            <video 
+          (questionData.optionMediaType !== 'image' && questionData.mediaType === 'video') ? (            <video 
             ref={(el) => setVideoRef(el, optionText)}
             src={`/assets/${levelFolder}vids/${optionText}.mp4`}
             className="option-media"
@@ -465,11 +664,12 @@ return (
             playsInline
             webkit-playsinline="true"
             preload="auto"
-            controls={false}
             autoPlay={true}
+            controls={false}
             onLoadedData={(e) => {
           const video = e.target as HTMLVideoElement;
                   video.muted = true;
+                  video.controls = false;
                   video.play().catch(() => {});
                   }}
                 onClick={(e) => {
@@ -481,7 +681,7 @@ return (
                 ></video>
                 ) : (
                 <img 
-                    src={`/assets/${levelFolder}pics/${optionText}.png`}
+                    src={`/assets/${levelFolder}pics/${optionText}.jpg`}
                     alt={`Option ${optionLetter}`}
                     className="option-media"
                   onError={(e) => console.error("Option image error:", e)}
@@ -526,9 +726,8 @@ return (
           <IonCardHeader>
             <IonCardTitle>Quiz Completed!</IonCardTitle>
           </IonCardHeader>
-          <IonCardContent>
-            <div className="score-content">
-              <h2>Your score: {score} out of {quizQuestions.length}</h2>
+          <IonCardContent>            <div className="score-content">
+              <h2>Your score: {score} out of {levelQuestions.length}</h2>
               <p>{score >= 7 ? 'Great job!' : 'Keep practicing!'}</p>
               <div className="back-button-container">
                 <IonButton 
@@ -536,7 +735,7 @@ return (
                   onClick={onClose}
                   className="back-button"
                   size="large"
-                  routerLink="/level2page"
+                  routerLink={`/level${level + 1}page`}
                 >
                   Continue Next Level
                 </IonButton>
