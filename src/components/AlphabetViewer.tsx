@@ -17,7 +17,20 @@ const AlphabetViewer: React.FC<AlphabetViewerProps> = ({
   onClose, 
   onTakeQuiz 
 }) => {
-  const letters = availableLetters || ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'NG', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  const getLevelLetters = (level: number): string[] => {
+    switch (level) {
+      case 1:
+        return ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+      case 2:
+        return ['J', 'K', 'L', 'M', 'N', 'Ñ', 'NG', 'O', 'P', 'Q'];
+      case 3:
+        return ['R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+      default:
+        return ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+    }
+  };
+  
+  const letters = availableLetters || getLevelLetters(level);
   const [currentLetter, setCurrentLetter] = useState(initialLetter);
   const [showQuizModal, setShowQuizModal] = useState(false);
   
