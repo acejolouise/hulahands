@@ -16,6 +16,7 @@ ion-content {
 }
 
 .title {
+  font-family: 'Century Gothic', sans-serif;
   color: white;
   font-size: 2.5rem;
   font-weight: bold;
@@ -39,6 +40,7 @@ ion-content {
 
 
 .start-button {
+  font-family: 'Century Gothic', sans-serif;
   --background: white;
   --color: black;
   --border-radius: 8px;

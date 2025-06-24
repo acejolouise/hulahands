@@ -27,7 +27,7 @@
   flex-direction: column;
   border-radius: clamp(10px, 2vw, 20px);
   overflow: hidden;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Century Gothic', sans-serif;
   max-width: 800px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -92,7 +92,7 @@
 .timer-box span {
   font-size: clamp(18px, 5vw, 24px);
   font-weight: bold;
-  font-family: monospace;
+  font-family: 'Century Gothic', monospace;
 }
 
 .timer-box.warning {

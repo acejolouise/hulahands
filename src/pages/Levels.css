@@ -43,6 +43,7 @@
 }
 
 .level-title {
+  font-family: 'Century Gothic', sans-serif;
   font-weight: bold;
   color: black;
   font-size: 24px;
@@ -60,6 +61,7 @@
 }
 
 .level-number {
+  font-family: 'Century Gothic', sans-serif;
   font-weight: bold;
   color: black;
   font-size: 28px;
@@ -67,6 +69,7 @@
 }
 
 .level-text {
+  font-family: 'Century Gothic', sans-serif;
   color: black;
   font-size: 38px;
   font-weight: bold;
