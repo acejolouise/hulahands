@@ -19,54 +19,71 @@ const Level5Page: React.FC = () => {
           <IonButtons slot="start">
             <IonBackButton defaultHref="/levels" />
           </IonButtons>
-          <IonTitle className="ion-text-center">Level 1</IonTitle>
+          <IonTitle className="ion-text-center">Level 5</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen className="ion-padding">
-        <div className="level1-container">
-          <h2>FSL Alphabets</h2>
+      <IonContent fullscreen className="ion-padding">        <div className="level1-container">
+          <h2>FSL Numbers</h2>
           <div className="alphabet-list">
             <button 
               className="letter-button"
-              onClick={() => console.log('Alphabet button clicked')}
+              onClick={() => console.log('Number 11 clicked')}
             >
-              Alphabet
+              11
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter A clicked')}
+              onClick={() => console.log('Number 12 clicked')}
             >
-              A
+              12
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter B clicked')}
+              onClick={() => console.log('Number 13 clicked')}
             >
-              B
+              13
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter C clicked')}
+              onClick={() => console.log('Number 14 clicked')}
             >
-              C
+              14
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter D clicked')}
+              onClick={() => console.log('Number 15 clicked')}
             >
-              D
+              15
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter E clicked')}
+              onClick={() => console.log('Number 16 clicked')}
             >
-              E
+              16
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter F clicked')}
+              onClick={() => console.log('Number 17 clicked')}
             >
-              F
+              17
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => console.log('Number 18 clicked')}
+            >
+              18
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => console.log('Number 19 clicked')}
+            >
+              19
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => console.log('Number 20 clicked')}
+            >
+              20
             </button>
             <button 
               className="letter-button"

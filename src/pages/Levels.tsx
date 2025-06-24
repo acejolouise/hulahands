@@ -23,26 +23,25 @@ interface LevelsParams {
 const Levels: React.FC = () => {
   const history = useHistory();
   const { categoryId } = useParams<LevelsParams>();
-  
-  const getCategoryLevels = (categoryId: string) => {
+    const getCategoryLevels = (categoryId: string) => {
     switch (categoryId) {
       case 'alphabets':
-        return 3;
+        return { count: 3, startLevel: 1 };
       case 'numbers':
-        return 0;
+        return { count: 2, startLevel: 4 };
       case 'vocabulary':
-        return 0;
+        return { count: 0, startLevel: 6 };
       case 'phrases':
-        return 0;
+        return { count: 0, startLevel: 6 };
       case 'sentences':
-        return 0;
+        return { count: 0, startLevel: 6 };
       default:
-        return 0; 
+        return { count: 0, startLevel: 1 }; 
     }
   };
   
-  const levelCount = getCategoryLevels(categoryId);
-  const levels = Array.from({ length: levelCount }, (_, i) => i + 1);
+  const categoryInfo = getCategoryLevels(categoryId);
+  const levels = Array.from({ length: categoryInfo.count }, (_, i) => categoryInfo.startLevel + i);
   
   const getCategoryTitle = (categoryId: string) => {
     switch (categoryId) {

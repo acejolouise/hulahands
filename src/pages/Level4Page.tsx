@@ -19,54 +19,78 @@ const Level4Page: React.FC = () => {
           <IonButtons slot="start">
             <IonBackButton defaultHref="/levels" />
           </IonButtons>
-          <IonTitle className="ion-text-center">Level 1</IonTitle>
+          <IonTitle className="ion-text-center">Level 4</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-padding">
         <div className="level1-container">
-          <h2>FSL Alphabets</h2>
+          <h2>FSL Numbers</h2>
           <div className="alphabet-list">
             <button 
               className="letter-button"
-              onClick={() => console.log('Alphabet button clicked')}
+              onClick={() => console.log('Numbers button clicked')}
             >
-              Alphabet
+              Numbers
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter A clicked')}
+              onClick={() => console.log('Number 1 clicked')}
             >
-              A
+              1
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter B clicked')}
+              onClick={() => console.log('Number 2 clicked')}
             >
-              B
+              2
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter C clicked')}
+              onClick={() => console.log('Number 3 clicked')}
             >
-              C
+              3
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter D clicked')}
+              onClick={() => console.log('Number 4 clicked')}
             >
-              D
+              4
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter E clicked')}
+              onClick={() => console.log('Number 5 clicked')}
             >
-              E
+              5
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter F clicked')}
+              onClick={() => console.log('Number 6 clicked')}
             >
-              F
+              6
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => console.log('Number 7 clicked')}
+            >
+              7
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => console.log('Number 8 clicked')}
+            >
+              8
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => console.log('Number 9 clicked')}
+            >
+              9
+            </button>
+            <button 
+              className="letter-button"
+              onClick={() => console.log('Number 10 clicked')}
+            >
+              10
             </button>
             <button 
               className="letter-button"
