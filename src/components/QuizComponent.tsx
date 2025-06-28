@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import { 
   IonButton, 
   IonCard, 
   IonCardContent, 
   IonCardHeader, 
   IonCardTitle,
-  IonItem,
-  IonIcon
+  IonItem
 } from '@ionic/react';
-import { checkmarkCircle, closeCircle } from 'ionicons/icons';
 import './QuizComponent.css';
 
 interface QuizComponentProps {
@@ -413,6 +412,8 @@ const quizQuestions: QuizQuestion[] = [
 ];
 
 const QuizComponent: React.FC<QuizComponentProps> = ({ onClose, level = 1 }) => {
+  const history = useHistory();
+  const params = useParams<{ categoryId?: string }>();
   const levelQuestions = quizQuestions.filter(q => q.level === `level${level}`);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
@@ -598,110 +599,97 @@ return (
                   const levelFolder = questionData.level;
                   
                   return (
-          <IonItem 
-                  key={index}
-                  lines="none"
-                  button
-                  detail={false}
-                  color={
-                  isAnswered ? 
-                  (option === questionData.correctAnswer ? 'success' : 
-                  (option === selectedAnswer && option !== questionData.correctAnswer) ? 'danger' : '') 
-                    : ''
-                        }
-                    onClick={() => handleAnswerClick(option)}
-                    disabled={isAnswered}
-                  className={`option-item ${
-                  isAnswered && option === questionData.correctAnswer ? 'correct-answer' : 
-                  isAnswered && option === selectedAnswer ? 'incorrect-answer' : ''
-                    }`}
-                  >
-            <div className="option-content">
-                <span className="option-label">{optionLetter}</span>
-            {questionData.optionsAreMedia ? (
-            <div className="option-media-container">
-            {optionMediaInfo ? (
-            optionMediaInfo.type === 'video' ? (            <video 
-            ref={(el) => setVideoRef(el, optionText)}
-            src={optionMediaInfo.path}
-            className="option-media" 
-            loop
-            muted={true}
-            playsInline
-            webkit-playsinline="true"
-            preload="auto"
-            autoPlay={true}
-            controls={false}
-            onLoadedData={(e) => {
-            const video = e.target as HTMLVideoElement;
-            video.muted = true;
-            video.controls = false;
-            video.play().catch(() => {});
-          }}
-              onClick={(e) => {
-            e.stopPropagation();
-                if (!isAnswered) {
-              handleAnswerClick(option);
-              }
-            }}
-            ></video>
-            ) : (
-        <img 
-          src={optionMediaInfo.path}
-          alt={`Option ${optionLetter}`}
-          className="option-media"
-          onError={(e) => console.error("Option image error:", e)}
-            />
-            )
-            ) : (
-            questionData.optionMediaType === 'video' || 
-          (questionData.optionMediaType !== 'image' && questionData.mediaType === 'video') ? (            <video 
-            ref={(el) => setVideoRef(el, optionText)}
-            src={`/assets/${levelFolder}vids/${optionText}.mp4`}
-            className="option-media"
-            loop
-            muted={true}
-            playsInline
-            webkit-playsinline="true"
-            preload="auto"
-            autoPlay={true}
-            controls={false}
-            onLoadedData={(e) => {
-          const video = e.target as HTMLVideoElement;
-                  video.muted = true;
-                  video.controls = false;
-                  video.play().catch(() => {});
-                  }}
-                onClick={(e) => {
-                    e.stopPropagation();
-                  if (!isAnswered) {
-                  handleAnswerClick(option);
-              }
-                }}
-                ></video>
-                ) : (
-                <img 
-                    src={`/assets/${levelFolder}pics/${optionText}.jpg`}
-                    alt={`Option ${optionLetter}`}
-                    className="option-media"
-                  onError={(e) => console.error("Option image error:", e)}
-                />
-                    )
-                    )}
-                  </div>
-                ) : (
-                <span className="option-text">{optionText}</span>
-              )}
-              </div>
-                            
-              {isAnswered && option === questionData.correctAnswer && (
-            <IonIcon icon={checkmarkCircle} color="success" slot="end" />
-                )}
-                {isAnswered && option === selectedAnswer && option !== questionData.correctAnswer && (
-              <IonIcon icon={closeCircle} color="danger" slot="end" />)}
-          </IonItem>
-            );
-          })}
+                    <IonItem 
+                      key={index}
+                      lines="none"
+                      button
+                      detail={false}
+                      onClick={() => handleAnswerClick(option)}
+                      disabled={isAnswered}
+                      className="option-item"
+                    >
+                      <div className="option-content">
+                        <span className="option-label">{optionLetter}</span>
+                        {questionData.optionsAreMedia ? (
+                          <div className="option-media-container">
+                            {optionMediaInfo ? (
+                              optionMediaInfo.type === 'video' ? (
+                                <video 
+                                  ref={(el) => setVideoRef(el, optionText)}
+                                  src={optionMediaInfo.path}
+                                  className="option-media" 
+                                  loop
+                                  muted={true}
+                                  playsInline
+                                  webkit-playsinline="true"
+                                  preload="auto"
+                                  autoPlay={true}
+                                  controls={false}
+                                  onLoadedData={(e) => {
+                                    const video = e.target as HTMLVideoElement;
+                                    video.muted = true;
+                                    video.controls = false;
+                                    video.play().catch(() => {});
+                                  }}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (!isAnswered) {
+                                      handleAnswerClick(option);
+                                    }
+                                  }}
+                                ></video>
+                              ) : (
+                                <img 
+                                  src={optionMediaInfo.path}
+                                  alt={`Option ${optionLetter}`}
+                                  className="option-media"
+                                  onError={(e) => console.error("Option image error:", e)}
+                                />
+                              )
+                            ) : (
+                              questionData.optionMediaType === 'video' || 
+                              (questionData.optionMediaType !== 'image' && questionData.mediaType === 'video') ? (
+                                <video 
+                                  ref={(el) => setVideoRef(el, optionText)}
+                                  src={`/assets/${levelFolder}vids/${optionText}.mp4`}
+                                  className="option-media"
+                                  loop
+                                  muted={true}
+                                  playsInline
+                                  webkit-playsinline="true"
+                                  preload="auto"
+                                  autoPlay={true}
+                                  controls={false}
+                                  onLoadedData={(e) => {
+                                    const video = e.target as HTMLVideoElement;
+                                    video.muted = true;
+                                    video.controls = false;
+                                    video.play().catch(() => {});
+                                  }}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (!isAnswered) {
+                                      handleAnswerClick(option);
+                                    }
+                                  }}
+                                ></video>
+                              ) : (
+                                <img 
+                                  src={`/assets/${levelFolder}pics/${optionText}.jpg`}
+                                  alt={`Option ${optionLetter}`}
+                                  className="option-media"
+                                  onError={(e) => console.error("Option image error:", e)}
+                                />
+                              )
+                            )}
+                          </div>
+                        ) : (
+                          <span className="option-text">{optionText}</span>
+                        )}
+                      </div>
+                    </IonItem>
+                  );
+                })}
         </div>
               
           {isAnswered && ( 
@@ -732,12 +720,21 @@ return (
               <div className="back-button-container">
                 <IonButton 
                   expand="block" 
-                  onClick={onClose}
+                  onClick={() => {
+                    onClose();
+                    const categoryId = params.categoryId || 'alphabet';
+                    const nextLevel = level + 1;
+                    
+                    if (nextLevel <= 5) {
+                      history.push(`/category/${categoryId}/level/${nextLevel}`);
+                    } else {
+                      history.push(`/category/${categoryId}`);
+                    }
+                  }}
                   className="back-button"
                   size="large"
-                  routerLink={`/level${level + 1}page`}
                 >
-                  Continue Next Level
+                  {level < 5 ? 'Continue Next Level' : 'Back to Levels'}
                 </IonButton>
               </div>
             </div>
