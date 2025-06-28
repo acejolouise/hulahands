@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { IonIcon, IonButton } from '@ionic/react';
 import { arrowForward, arrowBack, playCircle } from 'ionicons/icons';
-import './AlphabetDetail.css';
+import './VideoDetails.css';
 
 interface AlphabetDetailProps {
   letter: string;

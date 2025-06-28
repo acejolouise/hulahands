@@ -8,7 +8,7 @@ import {
   IonButtons,
   IonBackButton
 } from '@ionic/react';
-import AlphabetViewer from '../components/AlphabetViewer';
+import AlphabetViewer from '../components/VideoViewer';
 import QuizComponent from '../components/QuizComponent';
 import './Level1Page.css';
 

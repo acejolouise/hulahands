@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import AlphabetDetail from './AlphabetDetail';
-import './AlphabetViewer.css';
+import AlphabetDetail from './VideoDetails';
+import './VideoViewer.css';
 
 interface AlphabetViewerProps {
   initialLetter: string;
