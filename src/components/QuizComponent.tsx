@@ -1023,7 +1023,7 @@ const QuizComponent: React.FC<QuizComponentProps> = ({ onClose, level = 1 }) => 
       });
     }, 1000);
     
-    return () => clearInterval(timer);
+    return () => clearInterval(timer);  
   }, [currentQuestion, isAnswered, showScore]);
 
   const setVideoRef = useCallback((element: HTMLVideoElement | null, optionText: string) => {
@@ -1275,7 +1275,7 @@ return (
                     const categoryId = params.categoryId || 'alphabet';
                     const nextLevel = level + 1;
                     
-                    if (nextLevel <= 5) {
+                    if (nextLevel <= 20) {
                       history.push(`/category/${categoryId}/level/${nextLevel}`);
                     } else {
                       history.push(`/category/${categoryId}`);
@@ -1284,7 +1284,7 @@ return (
                   className="back-button"
                   size="large"
                 >
-                  {level < 5 ? 'Continue Next Level' : 'Back to Levels'}
+                  {level < 20 ? 'Continue Next Level' : 'Back to Levels'}
                 </IonButton>
               </div>
             </div>

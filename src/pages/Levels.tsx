@@ -30,11 +30,11 @@ const Levels: React.FC = () => {
       case 'numbers':
         return { count: 2, startLevel: 4 };
       case 'vocabulary':
-        return { count: 0, startLevel: 6 };
+        return { count: 11, startLevel: 6 };
       case 'phrases':
-        return { count: 0, startLevel: 6 };
+        return { count: 2, startLevel: 17 };
       case 'sentences':
-        return { count: 0, startLevel: 6 };
+        return { count: 2, startLevel: 19 };
       default:
         return { count: 0, startLevel: 1 }; 
     }
@@ -72,7 +72,7 @@ const Levels: React.FC = () => {
         <IonGrid className="levels-grid">
           <IonRow className="ion-justify-content-center ion-align-items-center">
             {levels.map((level) => (
-              <IonCol size="12" className="level-col" key={level}>                
+              <IonCol size="6" className="level-col" key={level}>                
                 <IonCard 
                   className="level-card" 
                   onClick={() => handleLevelClick(level)}
