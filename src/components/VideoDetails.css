@@ -127,12 +127,24 @@ video:focus {
   font-weight: bold;
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(255, 255, 255, 0.1);
-  width: 100px;
-  height: 100px;
-  line-height: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  padding: 10px;
   border-radius: 50%;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  line-height: 1.2;
+  /* Make it flexible for longer text */
+  max-width: 250px;
+  width: auto;
+  height: auto;
 }
 
 .navigation-controls {
@@ -171,9 +183,10 @@ video:focus {
   
   .letter-icon {
     font-size: 48px;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
+    min-width: 80px;
+    min-height: 80px;
+    max-width: 200px;
+    padding: 8px;
   }
   
   .play-button-overlay {
@@ -193,7 +206,9 @@ video:focus {
   
   .letter-icon {
     font-size: 56px;
-    width: 100px;
-    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 250px;
+    padding: 10px;
   }
 }
