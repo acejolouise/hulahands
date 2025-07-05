@@ -35,10 +35,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level1',
     question: "Which video shows the right sign for letter A?",
     options: [
-      "a. B",
-      "b. A",
-      "c. E",
-      "d. C"
+      "B",
+      "A",
+      "E",
+      "C"
     ],
     mediaType: 'none',
     mediaPath: '',
@@ -58,10 +58,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level1',
     question: "What is the correct letter shown in the picture?",
     options: [
-      "a. D",
-      "b. I",
-      "c. B",
-      "d. E"
+      "D",
+      "I",
+      "B",
+      "E"
     ],
     mediaType: 'image',
     mediaPath: '/assets/level1pics/B.png',
@@ -73,10 +73,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level1',
     question: "What letter is this?",
     options: [
-      "a. C",
-      "b. G",
-      "c. D",
-      "d. B"
+      "C",
+      "G",
+      "D",
+      "B"
     ],
     mediaType: 'video',
     mediaPath: '/assets/level1vids/C.mp4',
@@ -88,10 +88,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level1',
     question: "Which video shows the correct sign for the letter D?",
     options: [
-      "a. I",
-      "b. F",
-      "c. H",
-      "d. D"
+      "I",
+      "F",
+      "H",
+      "D"
     ],
     mediaType: 'none',
     mediaPath: '',
@@ -110,10 +110,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level1',
     question: "Which picture matches the correct sign for letter E?",
     options: [
-      "a. E",
-      "b. A",
-      "c. J",
-      "d. B"
+      "E",
+      "A",
+      "J",
+      "B"
     ],
     mediaType: 'none',
     mediaPath: '',
@@ -132,10 +132,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level1',
     question: "Which video matches the correct sign for the letter F?",
     options: [
-      "a. A",
-      "b. D",
-      "c. G",
-      "d. F"
+      "A",
+      "D",
+      "G",
+      "F"
     ],
     mediaType: 'none',
     mediaPath: '',
@@ -154,10 +154,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level1',
     question: "What letter is this?",
     options: [
-      "a. A",
-      "b. G",
-      "c. H",
-      "d. F"
+      "A",
+      "G",
+      "H",
+      "F"
     ],
     mediaType: 'video',
     mediaPath: '/assets/level1vids/G.mp4',
@@ -169,10 +169,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level1',
     question: "Choose the video that shows the correct sign for the letter H:",
     options: [
-      "a. H",
-      "b. D",
-      "c. A",
-      "d. C"
+      "H",
+      "D",
+      "A",
+      "C"
     ],
     mediaType: 'none',
     mediaPath: '',
@@ -191,10 +191,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level1',
     question: "What is the letter being shown in the picture?",
     options: [
-      "a. J",
-      "b. D",
-      "c. I",
-      "d. F"
+      "J",
+      "D",
+      "I",
+      "F"
     ],
     mediaType: 'image',
     mediaPath: '/assets/level1pics/I.png',
@@ -206,10 +206,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level1',
     question: "What letter is this? It's familiar, right?",
     options: [
-      "a. A",
-      "b. C",
-      "c. E",
-      "d. I"
+      "A",
+      "C",
+      "E",
+      "I"
     ],
     mediaType: 'video',
     mediaPath: '/assets/level1vids/E.mp4',
@@ -222,10 +222,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level2',
     question: "What sign is being shown in the picture?",
     options: [
-      "a. N",
-      "b. M",
-      "c. A",
-      "d. O"
+      "N",
+      "M",
+      "A",
+      "O"
     ],
     mediaType: 'image',
     mediaPath: '/assets/level2pics/M.jpg',
@@ -237,10 +237,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level2',
     question: "Which picture shows the right sign for letter L?",
     options: [
-      "a. M",
-      "b. K",
-      "c. L",
-      "d. O"
+      "M",
+      "K",
+      "L",
+      "O"
     ],
     mediaType: 'none',
     mediaPath: '',
@@ -259,10 +259,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level2',
     question: "Which hand shape matches the sign Ñ?",
     options: [
-      "a. B",
-      "b. F",
-      "c. Ñ",
-      "d. Q"
+      "B",
+      "F",
+      "Ñ",
+      "Q"
     ],
     mediaType: 'none',
     mediaPath: '',
@@ -281,10 +281,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level2',
     question: "If you see the sign of the letter \"J\" Which picture matches?",
     options: [
-      "a. J",
-      "b. H",
-      "c. K",
-      "d. L"
+      "J",
+      "H",
+      "K",
+      "L"
     ],
     mediaType: 'none',
     mediaPath: '',
@@ -303,10 +303,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level2',
     question: "What sign is being shown in the picture?",
     options: [
-      "a. K",
-      "b. Q",
-      "c. L",
-      "d. D"
+      "K",
+      "Q",
+      "L",
+      "D"
     ],
     mediaType: 'image',
     mediaPath: '/assets/level2pics/Q.jpg',
@@ -318,10 +318,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level2',
     question: "What letter is this?",
     options: [
-      "a. O",
-      "b. Q",
-      "c. P",
-      "d. M"
+      "O",
+      "Q",
+      "P",
+      "M"
     ],
     mediaType: 'image',
     mediaPath: '/assets/level2pics/P.jpg',
@@ -333,10 +333,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level2',
     question: "Which of these pictures shows the right sign for letter K?",
     options: [
-      "a. O",
-      "b. J",
-      "c. G",
-      "d. K"
+      "O",
+      "J",
+      "G",
+      "K"
     ],
     mediaType: 'none',
     mediaPath: '',
@@ -355,10 +355,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level2',
     question: "What letter is being shown in the picture?",
     options: [
-      "a. K",
-      "b. O",
-      "c. M",
-      "d. A"
+      "K",
+      "O",
+      "M",
+      "A"
     ],
     mediaType: 'image',
     mediaPath: '/assets/level2pics/O.jpg',
@@ -370,10 +370,10 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level2',
     question: "Which video shows the correct sign of NG?",
     options: [
-      "a. O",
-      "b. D",
-      "c. L",
-      "d. NG"
+      "O",
+      "D",
+      "L",
+      "NG"
     ],
     mediaType: 'none',
     mediaPath: '',
@@ -392,14 +392,14 @@ const quizQuestions: QuizQuestion[] = [
     level: 'level2',
     question: "Observe the sign of \"N.\" Which picture matches?",
     options: [
-      "a. B",
-      "b. O",
-      "c. N",
-      "d. M"
+      "B",
+      "O",
+      "N",
+      "M"
     ],
     mediaType: 'none',
     mediaPath: '',
-    correctAnswer: "c. N",
+    correctAnswer: "N",
     optionsAreMedia: true,
     optionMediaType: 'image',
     optionMediaPaths: {
@@ -408,6 +408,557 @@ const quizQuestions: QuizQuestion[] = [
       'N': { type: 'image', path: '/assets/level2pics/N.jpg' },
       'M': { type: 'image', path: '/assets/level2pics/M.jpg' }
     }
+  },
+  // Level 3 Questions
+  {
+    id: 21,
+    level: 'level3',
+    question: "Find the video with the right sign for letter T.",
+    options: [
+      "W",
+      "U", 
+      "T",
+      "R"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "c. T",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      'W': { type: 'video', path: '/assets/level3vids/W.mp4' },
+      'U': { type: 'video', path: '/assets/level3vids/U.mp4' },
+      'T': { type: 'video', path: '/assets/level3vids/T.mp4' },
+      'R': { type: 'video', path: '/assets/level3vids/R.mp4' }
+    }
+  },
+  {
+    id: 22,
+    level: 'level3',
+    question: "What letter is shown in this video?",
+    options: [
+      "H",
+      "W",
+      "N", 
+      "A"
+    ],
+    mediaType: 'video',
+    mediaPath: '/assets/level3vids/W.mp4',
+    correctAnswer: "b. W",
+    optionsAreMedia: false
+  },
+  {
+    id: 23,
+    level: 'level3',
+    question: "Identify the letter being shown.",
+    options: [
+      "G",
+      "Y",
+      "T",
+      "U"
+    ],
+    mediaType: 'video',
+    mediaPath: '/assets/level3vids/Y.mp4',
+    correctAnswer: "b. Y",
+    optionsAreMedia: false
+  },
+  {
+    id: 24,
+    level: 'level3',
+    question: "Which one shows the sign for letter X?",
+    options: [
+      "R",
+      "X",
+      "V",
+      "Z"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "b. X",
+    optionsAreMedia: true,
+    optionMediaType: 'image',
+    optionMediaPaths: {
+      'R': { type: 'image', path: '/assets/level3pics/R.jpg' },
+      'X': { type: 'image', path: '/assets/level3pics/X.jpg' },
+      'V': { type: 'image', path: '/assets/level3pics/V.jpg' },
+      'Z': { type: 'image', path: '/assets/level3pics/Z.jpg' }
+    }
+  },
+  {
+    id: 25,
+    level: 'level3',
+    question: "What letter is shown in the image?",
+    options: [
+      "D",
+      "H",
+      "R",
+      "T"
+    ],
+    mediaType: 'image',
+    mediaPath: '/assets/level3pics/R.jpg',
+    correctAnswer: "c. R",
+    optionsAreMedia: false
+  },
+  {
+    id: 26,
+    level: 'level3',
+    question: "Can you find the sign for the letter S?",
+    options: [
+      "S",
+      "T",
+      "U",
+      "V"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "a. S",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      'S': { type: 'video', path: '/assets/level3vids/S.mp4' },
+      'T': { type: 'video', path: '/assets/level3vids/T.mp4' },
+      'U': { type: 'video', path: '/assets/level3vids/U.mp4' },
+      'V': { type: 'video', path: '/assets/level3vids/V.mp4' }
+    }
+  },
+  {
+    id: 27,
+    level: 'level3',
+    question: "Tap the video with the sign for letter R.",
+    options: [
+      "R",
+      "S",
+      "T",
+      "U"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "a. R",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      'R': { type: 'video', path: '/assets/level3vids/R.mp4' },
+      'S': { type: 'video', path: '/assets/level3vids/S.mp4' },
+      'T': { type: 'video', path: '/assets/level3vids/T.mp4' },
+      'U': { type: 'video', path: '/assets/level3vids/U.mp4' }
+    }
+  },
+  {
+    id: 28,
+    level: 'level3',
+    question: "What letter is this?",
+    options: [
+      "Z",
+      "Y",
+      "X",
+      "W"
+    ],
+    mediaType: 'image',
+    mediaPath: '/assets/level3pics/Z.jpg',
+    correctAnswer: "a. Z",
+    optionsAreMedia: false
+  },
+  {
+    id: 29,
+    level: 'level3',
+    question: "Which one shows the sign for letter V?",
+    options: [
+      "Y",
+      "X",
+      "V",
+      "Z"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "c. V",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      'Y': { type: 'video', path: '/assets/level3vids/Y.mp4' },
+      'X': { type: 'video', path: '/assets/level3vids/X.mp4' },
+      'V': { type: 'video', path: '/assets/level3vids/V.mp4' },
+      'Z': { type: 'video', path: '/assets/level3vids/Z.mp4' }
+    }
+  },
+  {
+    id: 30,
+    level: 'level3',
+    question: "Identify the letter being shown.",
+    options: [
+      "D",
+      "K",
+      "P",
+      "U"
+    ],
+    mediaType: 'image',
+    mediaPath: '/assets/level3pics/U.jpg',
+    correctAnswer: "d. U",
+    optionsAreMedia: false
+  },
+  // Level 4 Questions (Numbers)
+  {
+    id: 31,
+    level: 'level4',
+    question: "What word is being signed?",
+    options: [
+      "2",
+      "4", 
+      "5",
+      "3"
+    ],
+    mediaType: 'video',
+    mediaPath: '/assets/level4vids/3.mp4',
+    correctAnswer: "d. 3",
+    optionsAreMedia: false
+  },
+  {
+    id: 32,
+    level: 'level4',
+    question: "What word is this sign?",
+    options: [
+      "7",
+      "8",
+      "6",
+      "1"
+    ],
+    mediaType: 'image',
+    mediaPath: '/assets/level4pics/6.jpg',
+    correctAnswer: "c. 6",
+    optionsAreMedia: false
+  },
+  {
+    id: 33,
+    level: 'level4',
+    question: "Find the correct video for number 10",
+    options: [
+      "10",
+      "2",
+      "5",
+      "3"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "a. 10",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      '10': { type: 'video', path: '/assets/level4vids/10.mp4' },
+      '2': { type: 'video', path: '/assets/level4vids/2.mp4' },
+      '5': { type: 'video', path: '/assets/level4vids/5.mp4' },
+      '3': { type: 'video', path: '/assets/level4vids/3.mp4' }
+    }
+  },
+  {
+    id: 34,
+    level: 'level4',
+    question: "Which number is right for this sign?",
+    options: [
+      "7",
+      "2",
+      "3",
+      "1"
+    ],
+    mediaType: 'image',
+    mediaPath: '/assets/level4pics/2.jpg',
+    correctAnswer: "b. 2",
+    optionsAreMedia: false
+  },
+  {
+    id: 35,
+    level: 'level4',
+    question: "Choose the video with the sign for '5'.",
+    options: [
+      "10",
+      "6",
+      "5",
+      "3"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "c. 5",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      '10': { type: 'video', path: '/assets/level4vids/10.mp4' },
+      '6': { type: 'video', path: '/assets/level4vids/6.mp4' },
+      '5': { type: 'video', path: '/assets/level4vids/5.mp4' },
+      '3': { type: 'video', path: '/assets/level4vids/3.mp4' }
+    }
+  },
+  {
+    id: 36,
+    level: 'level4',
+    question: "What does this sign mean?",
+    options: [
+      "3",
+      "10",
+      "9",
+      "1"
+    ],
+    mediaType: 'image',
+    mediaPath: '/assets/level4pics/1.jpg',
+    correctAnswer: "d. 1",
+    optionsAreMedia: false
+  },
+  {
+    id: 37,
+    level: 'level4',
+    question: "Which picture shows the sign for '4'?",
+    options: [
+      "4",
+      "9",
+      "8",
+      "3"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "a. 4",
+    optionsAreMedia: true,
+    optionMediaType: 'image',
+    optionMediaPaths: {
+      '4': { type: 'image', path: '/assets/level4pics/4.jpg' },
+      '9': { type: 'image', path: '/assets/level4pics/9.jpg' },
+      '8': { type: 'image', path: '/assets/level4pics/8.jpg' },
+      '3': { type: 'image', path: '/assets/level4pics/3.jpg' }
+    }
+  },
+  {
+    id: 38,
+    level: 'level4',
+    question: "Which number is right for this sign?",
+    options: [
+      "4",
+      "10",
+      "8",
+      "9"
+    ],
+    mediaType: 'image',
+    mediaPath: '/assets/level4pics/9.jpg',
+    correctAnswer: "d. 9",
+    optionsAreMedia: false
+  },
+  {
+    id: 39,
+    level: 'level4',
+    question: "Which video signs the number 7?",
+    options: [
+      "2",
+      "7",
+      "8",
+      "1"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "b. 7",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      '2': { type: 'video', path: '/assets/level4vids/2.mp4' },
+      '7': { type: 'video', path: '/assets/level4vids/7.mp4' },
+      '8': { type: 'video', path: '/assets/level4vids/8.mp4' },
+      '1': { type: 'video', path: '/assets/level4vids/1.mp4' }
+    }
+  },
+  {
+    id: 40,
+    level: 'level4',
+    question: "Select the picture showing the sign for number 8.",
+    options: [
+      "3",
+      "7",
+      "8",
+      "9"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "c. 8",
+    optionsAreMedia: true,
+    optionMediaType: 'image',
+    optionMediaPaths: {
+      '3': { type: 'image', path: '/assets/level4pics/3.jpg' },
+      '7': { type: 'image', path: '/assets/level4pics/7.jpg' },
+      '8': { type: 'image', path: '/assets/level4pics/8.jpg' },
+      '9': { type: 'image', path: '/assets/level4pics/9.jpg' }
+    }
+  },
+  // Level 5 Questions (Numbers 11-20)
+  {
+    id: 41,
+    level: 'level5',
+    question: "Identify the number being shown.",
+    options: [
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    mediaType: 'video',
+    mediaPath: '/assets/level5vids/12.mp4',
+    correctAnswer: "b. 12",
+    optionsAreMedia: false
+  },
+  {
+    id: 42,
+    level: 'level5',
+    question: "Can you find the sign for number 15?",
+    options: [
+      "12",
+      "13",
+      "14",
+      "15"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "d. 15",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      '12': { type: 'video', path: '/assets/level5vids/12.mp4' },
+      '13': { type: 'video', path: '/assets/level5vids/13.mp4' },
+      '14': { type: 'video', path: '/assets/level5vids/14.mp4' },
+      '15': { type: 'video', path: '/assets/level5vids/15.mp4' }
+    }
+  },
+  {
+    id: 43,
+    level: 'level5',
+    question: "Which one shows the sign for the number 11?",
+    options: [
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "a. 11",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      '11': { type: 'video', path: '/assets/level5vids/11.mp4' },
+      '12': { type: 'video', path: '/assets/level5vids/12.mp4' },
+      '13': { type: 'video', path: '/assets/level5vids/13.mp4' },
+      '14': { type: 'video', path: '/assets/level5vids/14.mp4' }
+    }
+  },
+  {
+    id: 44,
+    level: 'level5',
+    question: "What number is this?",
+    options: [
+      "16",
+      "17",
+      "18",
+      "19"
+    ],
+    mediaType: 'video',
+    mediaPath: '/assets/level5vids/17.mp4',
+    correctAnswer: "b. 17",
+    optionsAreMedia: false
+  },
+  {
+    id: 45,
+    level: 'level5',
+    question: "What number is shown in the video?",
+    options: [
+      "14",
+      "17",
+      "20",
+      "11"
+    ],
+    mediaType: 'video',
+    mediaPath: '/assets/level5vids/20.mp4',
+    correctAnswer: "c. 20",
+    optionsAreMedia: false
+  },
+  {
+    id: 46,
+    level: 'level5',
+    question: "Find the video with the right sign for the number 13.",
+    options: [
+      "11",
+      "13",
+      "19",
+      "18"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "b. 13",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      '11': { type: 'video', path: '/assets/level5vids/11.mp4' },
+      '13': { type: 'video', path: '/assets/level5vids/13.mp4' },
+      '19': { type: 'video', path: '/assets/level5vids/19.mp4' },
+      '18': { type: 'video', path: '/assets/level5vids/18.mp4' }
+    }
+  },
+  {
+    id: 47,
+    level: 'level5',
+    question: "Identify the number being shown.",
+    options: [
+      "16",
+      "12",
+      "13",
+      "19"
+    ],
+    mediaType: 'video',
+    mediaPath: '/assets/level5vids/19.mp4',
+    correctAnswer: "d. 19",
+    optionsAreMedia: false
+  },
+  {
+    id: 48,
+    level: 'level5',
+    question: "Tap the video with the sign for the number 14.",
+    options: [
+      "14",
+      "15",
+      "16",
+      "17"
+    ],
+    mediaType: 'none',
+    mediaPath: '',
+    correctAnswer: "a. 14",
+    optionsAreMedia: true,
+    optionMediaType: 'video',
+    optionMediaPaths: {
+      '14': { type: 'video', path: '/assets/level5vids/14.mp4' },
+      '15': { type: 'video', path: '/assets/level5vids/15.mp4' },
+      '16': { type: 'video', path: '/assets/level5vids/16.mp4' },
+      '17': { type: 'video', path: '/assets/level5vids/17.mp4' }
+    }
+  },
+  {
+    id: 49,
+    level: 'level5',
+    question: "What number is shown in the video?",
+    options: [
+      "14",
+      "15",
+      "16",
+      "17"
+    ],
+    mediaType: 'video',
+    mediaPath: '/assets/level5vids/16.mp4',
+    correctAnswer: "c. 16",
+    optionsAreMedia: false
+  },
+  {
+    id: 50,
+    level: 'level5',
+    question: "What number is this?",
+    options: [
+      "13",
+      "18",
+      "20",
+      "15"
+    ],
+    mediaType: 'video',
+    mediaPath: '/assets/level5vids/18.mp4',
+    correctAnswer: "b. 18",
+    optionsAreMedia: false
   }
 ];
 
@@ -593,8 +1144,8 @@ return (
               <div className="options-list">
                 {levelQuestions[currentQuestion]?.options.map((option, index) => {
                   const questionData = levelQuestions[currentQuestion];
-                  const optionLetter = option.split('.')[0].trim();
-                  const optionText = option.split('.')[1]?.trim() || '';
+                  const optionLetter = String.fromCharCode(97 + index); // 'a', 'b', 'c', 'd'
+                  const optionText = option.trim();
                   const optionMediaInfo = questionData.optionMediaPaths?.[optionText];
                   const levelFolder = questionData.level;
                   
@@ -604,12 +1155,11 @@ return (
                       lines="none"
                       button
                       detail={false}
-                      onClick={() => handleAnswerClick(option)}
+                      onClick={() => handleAnswerClick(`${optionLetter}. ${optionText}`)}
                       disabled={isAnswered}
-                      className="option-item"
+                      className={`option-item ${isAnswered && `${optionLetter}. ${optionText}` === levelQuestions[currentQuestion].correctAnswer ? 'correct-answer' : ''}`}
                     >
                       <div className="option-content">
-                        <span className="option-label">{optionLetter}</span>
                         {questionData.optionsAreMedia ? (
                           <div className="option-media-container">
                             {optionMediaInfo ? (
@@ -634,7 +1184,7 @@ return (
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     if (!isAnswered) {
-                                      handleAnswerClick(option);
+                                      handleAnswerClick(`${optionLetter}. ${optionText}`);
                                     }
                                   }}
                                 ></video>
@@ -669,7 +1219,7 @@ return (
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     if (!isAnswered) {
-                                      handleAnswerClick(option);
+                                      handleAnswerClick(`${optionLetter}. ${optionText}`);
                                     }
                                   }}
                                 ></video>
@@ -690,7 +1240,7 @@ return (
                     </IonItem>
                   );
                 })}
-        </div>
+              </div>
               
           {isAnswered && ( 
                 <>

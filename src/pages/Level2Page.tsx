@@ -22,10 +22,6 @@ const Level2Page: React.FC = () => {
     setShowAlphabetViewer(true);
   };
 
-  const handleAlphabetClick = () => {
-    setCurrentLetter('J');
-    setShowAlphabetViewer(true);
-  };
   
   const handleQuizClick = () => {
     setShowQuiz(true);
@@ -68,12 +64,6 @@ const Level2Page: React.FC = () => {
         <div className="level1-container">
           <h2>FSL Alphabets</h2>
             <div className="alphabet-list">
-            <button 
-              className="letter-button"
-              onClick={handleAlphabetClick}
-            >
-              Alphabet
-            </button>
             <button 
               className="letter-button"
               onClick={() => handleLetterClick('J')}

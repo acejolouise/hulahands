@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   IonContent, 
   IonHeader, 
@@ -8,12 +8,50 @@ import {
   IonButtons,
   IonBackButton
 } from '@ionic/react';
+import AlphabetViewer from '../components/VideoViewer';
+import QuizComponent from '../components/QuizComponent';
 import './Level3Page.css';
 
 const Level3Page: React.FC = () => {
+const [showAlphabetViewer, setShowAlphabetViewer] = useState(false);
+  const [currentLetter, setCurrentLetter] = useState('R');
+  const [showQuiz, setShowQuiz] = useState(false);
 
+  const handleLetterClick = (letter: string) => {
+    setCurrentLetter(letter);
+    setShowAlphabetViewer(true);
+  };
+
+  
+  const handleQuizClick = () => {
+    setShowQuiz(true);
+  };
+  
+  const handleQuizClose = () => {
+    setShowQuiz(false);
+  };
+
+  const handleStartQuiz = () => {
+    setShowAlphabetViewer(false);  
+    setShowQuiz(true);             
+  };
+
+  const level3Letters = ['R', 'S', 'T', 'U', 'V', 'W', 'X','Y','Z'];
+  
   return (
     <IonPage>
+      {showAlphabetViewer && (
+        <AlphabetViewer
+          initialLetter={currentLetter}
+          level={3}
+          availableLetters={level3Letters}
+          onClose={() => setShowAlphabetViewer(false)}
+          onTakeQuiz={handleStartQuiz}  
+        />
+      )}
+      {showQuiz && (
+        <QuizComponent onClose={handleQuizClose} level={3} />
+      )}
       <IonHeader className="ion-no-border">
         <IonToolbar className="transparent-toolbar">
           <IonButtons slot="start">
@@ -28,67 +66,61 @@ const Level3Page: React.FC = () => {
           <div className="alphabet-list">
             <button 
               className="letter-button"
-              onClick={() => console.log('Alphabet button clicked')}
-            >
-              Alphabet
-            </button>
-            <button 
-              className="letter-button"
-              onClick={() => console.log('Letter R clicked')}
+              onClick={() => handleLetterClick('R')}
             >
               R
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter S clicked')}
+              onClick={() => handleLetterClick('S')}
             >
               S
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter T clicked')}
+              onClick={() => handleLetterClick('T')}
             >
               T
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter U clicked')}
+              onClick={() => handleLetterClick('U')}
             >
               U
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter V clicked')}
+              onClick={() => handleLetterClick('V')}
             >
               V
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter W clicked')}
+              onClick={() => handleLetterClick('W')}
             >
               W
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter X clicked')}
+              onClick={() => handleLetterClick('X')}
             >
               X
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter Y clicked')}
+              onClick={() => handleLetterClick('Y')}
             >
               Y
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Letter Z clicked')}
+              onClick={() => handleLetterClick('Z')}
             >
               Z
             </button>
             <button 
               className="letter-button"
-              onClick={() => console.log('Quiz button clicked')}
+              onClick={handleQuizClick}
             >
               Let's see what you remember!
             </button>

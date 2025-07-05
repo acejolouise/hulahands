@@ -25,6 +25,10 @@ const AlphabetViewer: React.FC<AlphabetViewerProps> = ({
         return ['J', 'K', 'L', 'M', 'N', 'Ñ', 'NG', 'O', 'P', 'Q'];
       case 3:
         return ['R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+      case 4:
+        return ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+      case 5:
+        return ['11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
       default:
         return ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
     }

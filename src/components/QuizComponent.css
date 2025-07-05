@@ -374,6 +374,42 @@ option-item:hover .option-text {
   font-size: clamp(16px, 4vw, 20px);
 }
 
+/* Correct answer styling */
+.option-item.correct-answer {
+  --background: #d4edda !important;
+  border: 2px solid #28a745 !important;
+  box-shadow: 0 4px 16px rgba(40, 167, 69, 0.3) !important;
+  transform: scale(1.02);
+  animation: correct-answer-glow 1s ease-in-out;
+}
+
+.option-item.correct-answer .option-text {
+  background-color: #d4edda !important;
+  color: #155724 !important;
+  border: 2px solid #28a745;
+}
+
+.option-item.correct-answer .option-media-container {
+  border: 2px solid #28a745;
+  background-color: rgba(40, 167, 69, 0.1);
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+@keyframes correct-answer-glow {
+  0% {
+    box-shadow: 0 4px 16px rgba(40, 167, 69, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 4px 16px rgba(40, 167, 69, 0.3);
+    transform: scale(1.02);
+  }
+}
+
 /* Responsive styles */
 @media (max-width: 576px) {
   .options-list {
